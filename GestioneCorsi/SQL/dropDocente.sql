@@ -1,0 +1,1 @@
+drop table docente cascade constraints;

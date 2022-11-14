@@ -8,6 +8,8 @@ public class Corso {
 	private Date dataInizio;
 	private Date dataFine;
 	private double costo;
+	private String commento;
+	private String aulaCorso;
 	private long codDocente;
 	
 	public long getCodCorso() {
@@ -49,18 +51,35 @@ public class Corso {
 	public void setCosto(double costo) {
 		this.costo = costo;
 	}
-	
+
+	public String getCommento() {
+		return commento;
+	}
+
+	public void setCommento(String commento) {
+		this.commento = commento;
+	}
+
+	public String getAulaCorso() {
+		return aulaCorso;
+	}
+
+	public void setAulaCorso(String aulaCorso) {
+		this.aulaCorso = aulaCorso;
+	}
+
 	public long getCodDocente() {
 		return codDocente;
 	}
-	
+
 	public void setCodDocente(long codDocente) {
 		this.codDocente = codDocente;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Corso [codCorso=" + codCorso + ", nomeCorso=" + nomeCorso + ", dataInizio=" + dataInizio + ", dataFine="
-				+ dataFine + ", costo=" + costo + ", codDocente=" + codDocente + "]";
+				+ dataFine + ", costo=" + costo + ", commento=" + commento + ", aulaCorso=" + aulaCorso
+				+ ", codDocente=" + codDocente + "]";
 	}
 }

@@ -112,6 +112,8 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 				corso.setCodDocente(rs.getLong(8));
 				
 			}
+			
+			rs.close();
 		} catch (SQLException e) {
 			throw new DAOException(e);
 		}

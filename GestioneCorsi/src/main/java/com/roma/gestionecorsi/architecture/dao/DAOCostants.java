@@ -2,8 +2,8 @@ package com.roma.gestionecorsi.architecture.dao;
 
 public interface DAOCostants {
 	
-	String SELECT_ADMIN ="Select * from admin";
-	String SELECT_ADMIN_BYCOD ="Select * from admin where cod_admin = ?";
+	String SELECT_ADMIN ="Select * from amministratore";
+	String SELECT_ADMIN_BYCOD ="Select * from amministratore where cod_admin = ?";
 
 	String SELECT_CORSO="Select * from corso";
 	String DELETE_CORSO ="Delete from corso where cod_corso = ?";

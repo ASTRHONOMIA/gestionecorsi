@@ -25,10 +25,6 @@ class AmministratoreDAOTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
-		amministratore = new Amministratore();
-		amministratore.setCodAdmin(2);
-		amministratore.setNomeAdmin("Sofia");
-		amministratore.setCognomeAdmin("Fra");
 	}
 	
 	@Test

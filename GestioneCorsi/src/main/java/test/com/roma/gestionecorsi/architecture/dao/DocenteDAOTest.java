@@ -1,4 +1,4 @@
-package com.roma.gestionecorsi.architecture.dao;
+package test.com.roma.gestionecorsi.architecture.dao;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import com.roma.gestionecorsi.architecture.dao.DAOException;
+import com.roma.gestionecorsi.architecture.dao.DocenteDAO;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.roma.gestionecorsi.businesscomponent.model.Docente;
 

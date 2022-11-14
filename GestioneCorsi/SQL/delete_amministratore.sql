@@ -1,0 +1,1 @@
+drop table amministratore cascade constraints;

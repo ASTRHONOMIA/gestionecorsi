@@ -1,10 +1,10 @@
 package com.roma.gestionecorsi.businesscomponent.model;
 
 public class Docente {
-	String nomeDocente;
-	String cognomeDocente;
-	String cvDocente;
-	long codDocente;
+	private String nomeDocente;
+	private String cognomeDocente;
+	private String cvDocente;
+	private long codDocente;
 	
 	public String getNomeDocente() {
 		return nomeDocente;

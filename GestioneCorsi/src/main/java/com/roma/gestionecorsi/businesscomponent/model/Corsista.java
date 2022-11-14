@@ -2,9 +2,9 @@ package com.roma.gestionecorsi.businesscomponent.model;
 
 public class Corsista {
 	
-	String nomeCorsista;
-	String cognomeCorsista;
-	long codiceCorsista;
+	private String nomeCorsista;
+	private String cognomeCorsista;
+	private long codiceCorsista;
 	private boolean precedentiFormativi;
 	
 	public Corsista() {}

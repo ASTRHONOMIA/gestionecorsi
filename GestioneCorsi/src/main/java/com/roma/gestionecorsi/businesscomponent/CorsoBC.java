@@ -61,7 +61,7 @@ public class CorsoBC {
 	public Corso[] getCorsoPostiDisponibili() {
 		//TODO
 		
-		return null;
+		return null;             
 	}
 	
 	public void deleteCorso(Corso corso) throws DAOException {

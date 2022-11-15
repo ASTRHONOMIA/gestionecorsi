@@ -32,7 +32,7 @@ public class CorsoCodGenerator implements DAOCostants {
 		try {
 			stmt = conn.createStatement();
 			
-			rs = stmt.executeQuery(SELECT_CORS_SEQ);
+			rs = stmt.executeQuery(SELECT_CORSO_SEQ);
 			
 			id = rs.getLong(1);
 		} catch (SQLException e) {

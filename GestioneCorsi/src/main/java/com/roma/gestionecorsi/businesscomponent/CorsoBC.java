@@ -7,6 +7,7 @@ import java.util.Date;
 import com.roma.gestionecorsi.architecture.dao.CorsoDAO;
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
+import com.roma.gestionecorsi.businesscomponent.codgenerator.CorsoCodGenerator;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
 
 public class CorsoBC {
@@ -16,7 +17,8 @@ public class CorsoBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	public void createCorso(Corso corso) throws DAOException {
+	public void createCorso(Corso corso) throws DAOException, ClassNotFoundException, IOException {
+		corso.setCodCorso(CorsoCodGenerator.getIstance().getNextId());
 		CorsoDAO.getFactory().create(conn, corso);
 	}
 	

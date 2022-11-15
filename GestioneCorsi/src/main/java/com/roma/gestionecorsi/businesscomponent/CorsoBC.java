@@ -68,7 +68,11 @@ public class CorsoBC {
 		CorsoDAO.getFactory().delete(conn, corso);
 	}
 	
-	public Corso[] getCorsiFromDate(Date data) throws DAOException {
-		Corso[] corsi = getCorsi();
+	public Corso[] getCorsiFromDate() throws DAOException {
+		return CorsoDAO.getFactory().getCorsoFromDate(conn);
+	}
+	
+	public void updateCorso(Corso corso) throws DAOException {
+		CorsoDAO.getFactory().update(conn, corso);
 	}
 }

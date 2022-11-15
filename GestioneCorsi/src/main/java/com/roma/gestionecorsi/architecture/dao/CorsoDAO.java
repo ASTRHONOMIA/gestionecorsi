@@ -191,5 +191,43 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 		}
 		return num;
 	}
-
+	
+	public Corso[] getCorsoFromDate(Connection conn) throws DAOException {
+		PreparedStatement ps;
+		Corso[] corsi = null;
+		try {
+			ps = conn.prepareStatement(
+					SELECT_CORSO_FROM_DATE,
+					RowSet.TYPE_SCROLL_INSENSITIVE,
+					RowSet.CONCUR_READ_ONLY);
+			
+			ps.setDate(1, new java.sql.Date(new Date().getTime()));
+			
+			ResultSet rs = ps.executeQuery();
+			
+			rs.last();
+			
+			corsi = new Corso[rs.getRow()];
+			
+			rs.beforeFirst();
+			for(int i = 0; rs.next(); i++) {
+				Corso corso = new Corso();
+				
+				corso.setCodCorso(rs.getLong(1));
+				corso.setNomeCorso(rs.getString(2));
+				corso.setDataInizio(new java.util.Date(rs.getDate(3).getTime()));
+				corso.setDataFine(new java.util.Date(rs.getDate(4).getTime()));
+				corso.setCosto(rs.getDouble(5));
+				corso.setCommento(rs.getString(6));
+				corso.setAulaCorso(rs.getString(7));
+				corso.setCodDocente(rs.getLong(8));
+				
+				corsi[i] = corso;
+			}
+			
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
+		return corsi;
+	}
 }

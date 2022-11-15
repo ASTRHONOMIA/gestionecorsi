@@ -21,7 +21,7 @@ public class DocenteDAO extends GenericDAOAdapter<Docente> implements DAOCostant
 	
 	private  DocenteDAO() throws DAOException{
 		try {
-			rowSet= RowSetProvider.newFactory().createCachedRowSet();
+			rowSet = RowSetProvider.newFactory().createCachedRowSet();
 		}catch(SQLException sql) {
 			throw new DAOException(sql);
 		}
@@ -70,6 +70,7 @@ public class DocenteDAO extends GenericDAOAdapter<Docente> implements DAOCostant
 				d.setCognomeDocente(rs.getString(2));
 				d.setCvDocente(rs.getString(3));
 				d.setCodDocente(rs.getLong(4));
+				docenti[i]=d;
 			}
 			rs.close();
 			

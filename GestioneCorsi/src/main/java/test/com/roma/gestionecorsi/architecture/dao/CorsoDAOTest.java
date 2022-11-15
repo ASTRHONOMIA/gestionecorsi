@@ -132,7 +132,7 @@ class CorsoDAOTest {
 	@Order(5)
 	void testGetData() {
 		try {
-			Date data =  CorsoDAO.getFactory().getDate(conn, 1);
+			Date data =  CorsoDAO.getFactory().getInizioCorso(conn, 1);
 			System.out.println(data.toString());
 		} catch (DAOException e) {
 			e.printStackTrace();

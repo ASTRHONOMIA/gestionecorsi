@@ -28,7 +28,13 @@ public class CorsoBC {
 		return nome;
 	}
 	
-	public Date getInizioCorso(Corso corso) throws DAOException {
+	public Date getInizioUltimoCorso() throws DAOException {
+		Corso[] corsi = getCorsi();
+		
+		long num = corsi.length;
+		
+		Corso corso = getById(num);
+		
 		return CorsoDAO.getFactory().getInizioCorso(conn, corso.getCodCorso());
 	}
 	
@@ -42,5 +48,27 @@ public class CorsoBC {
 	
 	public int getNumeroCommenti() throws DAOException {
 		return CorsoDAO.getFactory().getNumeroCommenti(conn);
+	}
+	
+	public Corso getById(long id) throws DAOException {
+		return CorsoDAO.getFactory().getById(conn, id);
+	}
+	
+	public Corso[] getCorsi() throws DAOException {
+		return CorsoDAO.getFactory().getAll(conn);
+	}
+	
+	public Corso[] getCorsoPostiDisponibili() {
+		//TODO
+		
+		return null;
+	}
+	
+	public void deleteCorso(Corso corso) throws DAOException {
+		CorsoDAO.getFactory().delete(conn, corso);
+	}
+	
+	public Corso[] getCorsiFromDate(Date data) throws DAOException {
+		Corso[] corsi = getCorsi();
 	}
 }

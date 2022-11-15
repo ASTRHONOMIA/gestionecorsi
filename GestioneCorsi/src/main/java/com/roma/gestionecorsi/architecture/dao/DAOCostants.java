@@ -25,6 +25,7 @@ public interface DAOCostants {
 	String POSTI_DISPONIBILI="select posti_occupati from corso where cod_corso= ?";
 	
 	String SELECT_CORSO_CORSISTA="Select * from corso_corsista";
+	String SELECT_CORSO_PIU_FREQUENTE="Select partecipanti, nome_corso from (select count(*) as partecipanti,nome_corso from corso_corsista, corso where corso.cod_corso=corso_corsista.cod_corso group by nome_corso) where partecipanti in (select max(partecipanti) from (select count(*) as partecipanti,nome_corso from corso_corsista, corso where corso.cod_corso=corso_corsista.cod_corso group by nome_corso))";
 	
 	String SELECT_DOCENTE="Select * from docente";
 	String SELECT_DOCENTE_BYCOD ="Select * from docente where cod_docente = ?";

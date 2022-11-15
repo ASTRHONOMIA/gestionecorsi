@@ -18,5 +18,5 @@ public class CorsoCorsistaBC {
 	public void create(CorsoCorsista cc) throws DAOException{
 		CorsoCorsistaDAO.getFactory().create(conn, cc);
 	}
-
+	
 }

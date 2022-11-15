@@ -1,4 +1,4 @@
-package test.com.roma.businesscomponent;
+package test.com.roma.gestionecorsi.businesscomponent;
 
 import static org.junit.jupiter.api.Assertions.fail;
 

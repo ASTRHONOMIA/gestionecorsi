@@ -1,1 +1,0 @@
-drop table corso_corsista cascade constraints

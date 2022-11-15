@@ -152,7 +152,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 				corso.setCommento(rs.getString(6));
 				corso.setAulaCorso(rs.getString(7));
 				corso.setCodDocente(rs.getLong(8));
-				corso.setCodCorso(rs.getLong(9));
+				corso.setPostiOccupati(rs.getInt(9));
 				
 				corsi[i] = corso;
 			}

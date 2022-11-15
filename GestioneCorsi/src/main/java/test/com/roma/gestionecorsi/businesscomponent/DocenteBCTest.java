@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import com.roma.businesscomponent.DocenteBC;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
+import com.roma.gestionecorsi.businesscomponent.DocenteBC;
 import com.roma.gestionecorsi.businesscomponent.model.Docente;
 
 

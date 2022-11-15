@@ -1,4 +1,4 @@
-package com.roma.businesscomponent;
+package com.roma.gestionecorsi.businesscomponent;
 
 import java.io.IOException;
 import java.sql.Connection;

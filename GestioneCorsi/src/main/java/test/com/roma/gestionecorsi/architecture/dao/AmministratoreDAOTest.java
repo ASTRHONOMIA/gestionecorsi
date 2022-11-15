@@ -3,6 +3,7 @@ package test.com.roma.gestionecorsi.architecture.dao;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.junit.jupiter.api.AfterAll;
@@ -24,16 +25,22 @@ class AmministratoreDAOTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		conn = DBAccess.getConnection();
+			conn = DBAccess.getConnection();
+			
+		
 	}
 	
 	@Test
 	@Order(1)
 	void testGetAll() {
 		try {
-			Amministratore[] articoli = AmministratoreDAO.getFactory().getAll(conn);
-			assertNotNull(articoli);
-		}catch(DAOException exc) {
+			amministratore = null;
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("Insert into amministratore values(2,'Andrea','Tulino')");
+			conn.commit();
+			Amministratore[] amministratori = AmministratoreDAO.getFactory().getAll(conn);
+			assertNotNull(amministratori);
+		}catch(SQLException  exc) {
 			exc.printStackTrace();
 			fail("Motivo: "+exc.getMessage());
 		}

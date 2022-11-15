@@ -6,6 +6,7 @@ public interface DAOCostants {
 	String SELECT_ADMIN_BYCOD ="Select * from amministratore where cod_admin = ?";
 	
 	String SELECT_CORSO_SEQ = "select seq_corso.nextval from dual";
+	String SELECT_CORSISTA_SEQ= "select seq_corsisti.nextval from dual";
 
 	String SELECT_CORSO="Select * from corso";
 	String DELETE_CORSO ="Delete from corso where cod_corso = ?";

@@ -5,7 +5,7 @@ isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
-
+<%@ include file="CDN.html" %>
 <meta charset="ISO-8859-1">
 <title>Error Page</title>
 <link rel="stylesheet" href="css/style.css">

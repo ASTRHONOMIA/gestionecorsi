@@ -12,13 +12,14 @@
 <jsp:include page="nav.jsp"/>
 <div class="container">
 	<header class="page-header">
-		<h2>Inserire i dati per effettuare l'accesso</h2>
+		<h3>Inserire i dati per effettuare l'accesso</h3>
 	</header>
+	
 	<form action="/<%=application.getServletContextName()%>/controlloAccesso" method="post"
 	class="form-horizontal">
 	
 	<div class="form-group">
-		<label class="col-md-2 control-label">Nome admin</label>
+		<label class="col-md-1 control-label">Nome</label>
 		<div class="col-md-4 inputGroupContainer">
 			<div class="input-group">
 				<span class="input-group-addon">
@@ -31,7 +32,7 @@
 	</div>
 	
 	<div class="form-group">
-		<label class="col-md-2 control-label">Codice admin</label>
+		<label class="col-md-1 control-label">Codice</label>
 		<div class="col-md-4 inputGroupContainer">
 			<div class="input-group">
 				<span class="input-group-addon">
@@ -44,9 +45,13 @@
 	</div>
 	
 	<div class="row">
-		<div class="col-md-4 col-md-offset-2">
+		<div class="col-md-4 col-md-offset-1">
 			<button type="submit" class="btn btn-success">
 			Login&nbsp;&nbsp;<span class="glyphicon glyphicon-send"></span>
+			</button>
+			
+			<button type="reset" class="btn btn-danger">
+			Annulla&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span>
 			</button>
 		</div>
 	</div>

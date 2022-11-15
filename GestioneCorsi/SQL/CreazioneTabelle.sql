@@ -34,6 +34,7 @@ costo_corso number(6,2) not null,
 commento_corso varchar2(200),
 aula_corso varchar2(10) not null,
 cod_docente int,
+posti_occupati number(2) not null,
 constraint p_cod_corso primary key(cod_corso),
 constraint f_cod_docente foreign key(cod_docente) references docente(cod_docente));
 

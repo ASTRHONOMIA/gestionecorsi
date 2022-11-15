@@ -11,7 +11,16 @@ public class Corso {
 	private String commento;
 	private String aulaCorso;
 	private long codDocente;
+	private int postiOccupati;
 	
+	public int getPostiOccupati() {
+		return postiOccupati;
+	}
+
+	public void setPostiOccupati(int postiOccupati) {
+		this.postiOccupati = postiOccupati;
+	}
+
 	public long getCodCorso() {
 		return codCorso;
 	}
@@ -80,6 +89,8 @@ public class Corso {
 	public String toString() {
 		return "Corso [codCorso=" + codCorso + ", nomeCorso=" + nomeCorso + ", dataInizio=" + dataInizio + ", dataFine="
 				+ dataFine + ", costo=" + costo + ", commento=" + commento + ", aulaCorso=" + aulaCorso
-				+ ", codDocente=" + codDocente + "]";
+				+ ", codDocente=" + codDocente + ", postiOccupati=" + postiOccupati + "]";
 	}
+
+	
 }

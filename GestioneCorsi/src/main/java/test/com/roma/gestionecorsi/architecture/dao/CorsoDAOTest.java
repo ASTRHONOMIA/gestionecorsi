@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -18,6 +20,7 @@ import com.roma.gestionecorsi.architecture.dao.CorsoDAO;
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
+import com.roma.gestionecorsi.businesscomponent.model.Docente;
 
 @TestMethodOrder(OrderAnnotation.class)
 class CorsoDAOTest {
@@ -38,12 +41,17 @@ class CorsoDAOTest {
 		corso.setCommento("Impara Java");
 		corso.setAulaCorso("N5");
 		corso.setCodDocente(1);
+		corso.setPostiOccupati(0);
+		System.out.println(corso.toString());
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		try {
 			CorsoDAO.getFactory().delete(conn, corso);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("Delete from docente where cod_docente = 1");
+			conn.commit();
 			DBAccess.closeConnetion();
 			System.out.println("Docente e Corso distrutto");
 		} catch (DAOException e) {
@@ -56,9 +64,12 @@ class CorsoDAOTest {
 	@Order(1)
 	void testCreate() {
 		try {
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("Insert into docente values('Andrea','Tulino','',1)");
+			conn.commit();
 			CorsoDAO.getFactory().create(conn, corso);
 			System.out.println("Docente e Corso creato");
-		} catch (DAOException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			fail("Motivo: " + e.getMessage());
 		}
@@ -78,12 +89,15 @@ class CorsoDAOTest {
 			c.setCommento("Impara PHP");
 			c.setAulaCorso("N5");
 			c.setCodDocente(1);
+			c.setPostiOccupati(2);
 			
 			CorsoDAO.getFactory().update(conn, c);
 			System.out.println("Docente e Corso Updatato");
 			
 			Corso cor = CorsoDAO.getFactory().getById(conn, 1);
 			System.out.println(cor.toString());
+			
+			System.out.println("Posti disponibili: "+CorsoDAO.getFactory().getPostiDisponibi(conn, c.getCodCorso()));
 		} catch (DAOException e) {
 			e.printStackTrace();
 			fail("Motivo: " + e.getMessage());
@@ -103,6 +117,7 @@ class CorsoDAOTest {
 			corso.setCommento("Impara Java");
 			corso.setAulaCorso("N5");
 			corso.setCodDocente(1);
+			corso.setPostiOccupati(2);
 			
 			CorsoDAO.getFactory().update(conn, corso);
 			System.out.println("Aggiornamento Corso");

@@ -123,13 +123,11 @@ public class Facade {
 		return corBC.getInizioUltimoCorso();
 	}
 	
-	public Corso[] getCoriAperti() throws ClassNotFoundException, DAOException, IOException
+	public Corso[] getCorsiAperti() throws ClassNotFoundException, DAOException, IOException
 	{
 		corBC= new CorsoBC();
 		return corBC.getCorsiFromDate();
 	}
-	
-	//Fine Facede per Corso
 	
 	
 }

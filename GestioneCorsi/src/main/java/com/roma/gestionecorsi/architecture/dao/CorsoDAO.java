@@ -43,6 +43,8 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 			rowSet.updateString(6, entity.getCommento());
 			rowSet.updateString(7, entity.getAulaCorso());
 			rowSet.updateLong(8, entity.getCodDocente());
+			rowSet.updateInt(9, entity.getPostiOccupati());
+			
 			
 			rowSet.insertRow();
 			
@@ -66,7 +68,9 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 			ps.setString(5, entity.getCommento());
 			ps.setString(6, entity.getAulaCorso());
 			ps.setLong(7, entity.getCodDocente());
-			ps.setLong(8, entity.getCodCorso());
+			ps.setInt(8,entity.getPostiOccupati());
+			ps.setLong(9, entity.getCodCorso());
+			
 			
 			ps.execute();
 			conn.commit();
@@ -111,6 +115,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 				corso.setCommento(rs.getString(6));
 				corso.setAulaCorso(rs.getString(7));
 				corso.setCodDocente(rs.getLong(8));
+				corso.setCodCorso(rs.getInt(9));
 				
 			}
 			
@@ -147,6 +152,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 				corso.setCommento(rs.getString(6));
 				corso.setAulaCorso(rs.getString(7));
 				corso.setCodDocente(rs.getLong(8));
+				corso.setCodCorso(rs.getLong(9));
 				
 				corsi[i] = corso;
 			}
@@ -221,7 +227,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 				corso.setCommento(rs.getString(6));
 				corso.setAulaCorso(rs.getString(7));
 				corso.setCodDocente(rs.getLong(8));
-				
+				corso.setPostiOccupati(rs.getInt(9));
 				corsi[i] = corso;
 			}
 			
@@ -248,5 +254,22 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 			throw new DAOException(e);
 		}
 		return num;
+	}
+	
+	public int getPostiDisponibi(Connection conn, long cod) throws DAOException 
+	{
+		int disponibili=0;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(POSTI_DISPONIBILI);
+			ps.setLong(1, cod);
+			ResultSet rs= ps.executeQuery();
+			if(rs.next()) 
+				disponibili=12-rs.getInt(1);
+		}catch(SQLException e)
+		{
+			throw new DAOException(e);
+		}
+		return disponibili;
 	}
 }

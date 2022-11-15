@@ -3,6 +3,8 @@ package test.com.roma.gestionecorsi.architecture.dao;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -32,9 +34,12 @@ class DocenteDAOTest {
 	@Order(1)
 	void testGetByCod() {
 		try {
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("Insert into docente values('Andrea','Tulino','',3)");
+			conn.commit();
 			Docente docente =DocenteDAO.getFactory().getById(conn, 3);
 			System.out.println(docente.toString());
-		}catch( DAOException  exc) {
+		}catch(SQLException  exc) {
 			exc.printStackTrace();
 			fail("Motivo: "+exc.getMessage());
 		}
@@ -56,6 +61,16 @@ class DocenteDAOTest {
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
+		try {
+			Statement stmt = conn.createStatement();
+				stmt.executeUpdate("Delete from docente where cod_docente=3");
+				conn.commit();
+		}
+		catch(SQLException exc)
+		{
+			exc.printStackTrace();
+			fail("Motivo: "+exc.getMessage());
+		}
 		DBAccess.closeConnetion();
 	}
 

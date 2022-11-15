@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 import javax.sql.RowSet;
 import javax.sql.rowset.CachedRowSet;
@@ -153,6 +154,42 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 			throw new DAOException(e);
 		}
 		return corsi;
+	}
+	
+	public Date getDate(Connection conn, long id) throws DAOException {
+		PreparedStatement ps;
+		Date data = null;
+		try {
+			ps = conn.prepareStatement(SELECT_DATA_INIZIO);
+			
+			ps.setLong(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				data = new java.util.Date(rs.getDate(1).getTime());
+			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
+		return data;
+	}
+	
+	public int getNumeroCommenti(Connection conn) throws DAOException {
+		int num = 0;
+		try {
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(SELECT_NUMERO_COMMENTI);
+			
+			if (rs.next()) {
+				num = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
+		return num;
 	}
 
 }

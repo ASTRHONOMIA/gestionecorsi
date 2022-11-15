@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.AfterAll;
@@ -121,11 +122,33 @@ class CorsoDAOTest {
 			Corso[] co = CorsoDAO.getFactory().getAll(conn);
 			
 			assertNotNull(co);
-			System.out.println(co.toString());
 		} catch (DAOException e) {
 			e.printStackTrace();
 			fail("Motivo: " + e.getMessage());
 		}
 	}
-
+	
+	@Test
+	@Order(5)
+	void testGetData() {
+		try {
+			Date data =  CorsoDAO.getFactory().getDate(conn, 1);
+			System.out.println(data.toString());
+		} catch (DAOException e) {
+			e.printStackTrace();
+			fail("Motivo: " + e.getMessage());
+		}
+	}
+	
+	@Test
+	@Order(6)
+	void testGetNumeroCommenti() {
+		try {
+			int i =  CorsoDAO.getFactory().getNumeroCommenti(conn);
+			System.out.println(i);
+		} catch (DAOException e) {
+			e.printStackTrace();
+			fail("Motivo: " + e.getMessage());
+		}
+	}
 }

@@ -9,10 +9,10 @@ import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import com.roma.gestionecorsi.architecture.dao.CorsoDAO;
 import com.roma.gestionecorsi.architecture.dao.DAOException;
@@ -98,7 +98,7 @@ class CorsoDAOTest {
 			corso.setCodCorso(1);
 			corso.setNomeCorso("Java");
 			corso.setDataInizio(new GregorianCalendar(2022, 10, 15).getTime());
-			corso.setDataFine(new GregorianCalendar(2022, 12, 20).getTime());
+			corso.setDataFine(new GregorianCalendar(2022, 11, 20).getTime());
 			corso.setCosto(150);
 			corso.setCommento("Impara Java");
 			corso.setAulaCorso("N5");
@@ -160,6 +160,18 @@ class CorsoDAOTest {
 			
 			assertNotNull(co);
 		} catch (DAOException e) {
+			e.printStackTrace();
+			fail("Motivo: " + e.getMessage());
+		}
+	}
+	
+	@Test
+	@Order(8)
+	void testDate() {
+		try {
+			int num = CorsoDAO.getFactory().getDurataCorso(conn, corso);
+			System.out.println("Numero giorni: " + num);
+		} catch (Exception e) {
 			e.printStackTrace();
 			fail("Motivo: " + e.getMessage());
 		}

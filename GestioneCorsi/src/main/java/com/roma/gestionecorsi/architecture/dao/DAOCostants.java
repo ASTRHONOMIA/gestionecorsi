@@ -10,6 +10,7 @@ public interface DAOCostants {
 
 	String SELECT_CORSO="Select * from corso";
 	String SELECT_CORSO_FROM_DATE="Select * from corso where data_fine > ?";
+	String SELECT_DURATA_CORSO = "SELECT data_inizio, data_fine, (data_fine-data_inizio)-2*FLOOR((data_fine-data_inizio)/7)-DECODE(SIGN(TO_CHAR(data_fine,'D')-TO_CHAR(data_inizio,'D')),-1,2,0)+DECODE(TO_CHAR(data_inizio,'D'),7,1,0)-DECODE(TO_CHAR(data_fine,'D'),7,1,0) as WorkDays FROM corso where cod_corso = ? ORDER BY data_inizio,data_fine";
 	String DELETE_CORSO ="Delete from corso where cod_corso = ?";
 	String SELECT_CORSO_BYCOD ="Select * from corso where cod_corso = ?";
 	String SELECT_DATA_INIZIO="select data_inizio from corso where cod_corso = ?";

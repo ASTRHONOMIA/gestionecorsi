@@ -139,4 +139,17 @@ class CorsoBCTest {
 			fail("Motivo: " + e.getMessage());
 		}
 	}
+	
+	@Test
+	@Order(7)
+	void testGetDurataMedia() {
+		try {
+			int durata = corsoBC.getDurataMedia(corso);
+			
+			System.out.println("Durata Corso: " + durata);
+		} catch (DAOException e) {
+			e.printStackTrace();
+			fail("Motivo: " + e.getMessage());
+		}
+	}
 }

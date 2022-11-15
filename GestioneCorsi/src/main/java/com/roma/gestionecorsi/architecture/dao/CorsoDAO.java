@@ -230,4 +230,23 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 		}
 		return corsi;
 	}
+	
+	public int getDurataCorso(Connection conn, Corso corso) throws DAOException {
+		int num = 0;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_DURATA_CORSO);
+			
+			ps.setLong(1, corso.getCodCorso());
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				num = rs.getInt(3);
+			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
+		return num;
+	}
 }

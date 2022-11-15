@@ -38,12 +38,8 @@ public class CorsoBC {
 		return CorsoDAO.getFactory().getInizioCorso(conn, corso.getCodCorso());
 	}
 	
-	private int getDurataMedia() {
-		int durata = 0;
-		
-		//TODO
-		
-		return durata;
+	public int getDurataMedia(Corso corso) throws DAOException {
+		return CorsoDAO.getFactory().getDurataCorso(conn, corso);
 	}
 	
 	public int getNumeroCommenti() throws DAOException {
@@ -56,12 +52,6 @@ public class CorsoBC {
 	
 	public Corso[] getCorsi() throws DAOException {
 		return CorsoDAO.getFactory().getAll(conn);
-	}
-	
-	public Corso[] getCorsoPostiDisponibili() {
-		//TODO
-		
-		return null;             
 	}
 	
 	public void deleteCorso(Corso corso) throws DAOException {

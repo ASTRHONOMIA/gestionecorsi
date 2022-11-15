@@ -1,6 +1,7 @@
 package com.roma.gestionecorsi.architecture.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -69,7 +70,25 @@ public class CorsoCorsistaDAO extends GenericDAOAdapter<CorsoCorsista> implement
 		return nomi;
 	}
 	
-	
-	
+	public long[] corsiDelCorsista(Connection conn, long cod) throws DAOException 
+	{
+		long[] codici=null;
+		PreparedStatement ps;
+		try {
+			
+			ps=conn.prepareStatement(SELECT_CORSI_DEL_CORSISTA,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			ps.setLong(1, cod);
+			ResultSet rs= ps.executeQuery();
+			rs.last();
+			codici= new long[rs.getRow()];
+			rs.beforeFirst();
+			for (int i = 0;rs.next(); i++) 
+				codici[i] = rs.getLong(1);
+			rs.close();
+		}catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return codici;
+	}
 	
 }

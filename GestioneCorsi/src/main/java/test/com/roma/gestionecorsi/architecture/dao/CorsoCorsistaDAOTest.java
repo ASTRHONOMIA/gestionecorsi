@@ -15,6 +15,7 @@ import com.roma.gestionecorsi.architecture.dao.CorsoCorsistaDAO;
 import com.roma.gestionecorsi.architecture.dao.CorsoDAO;
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
+import com.roma.gestionecorsi.businesscomponent.CorsoBC;
 import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
 import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
@@ -108,6 +109,13 @@ class CorsoCorsistaDAOTest {
 			System.out.println("Corsi piu frequentati:");
 			for(String nomi: c)
 				System.out.println(nomi);
+			System.out.println(corsista.getCodiceCorsista());
+			System.out.println("Corsi frquentati dal corsista:");
+			long cod[]=CorsoCorsistaDAO.getFactory().corsiDelCorsista(conn, corsista.getCodiceCorsista());
+			for(int i=0;i<cod.length;i++)
+			{
+				System.out.println(CorsoDAO.getFactory().getById(conn, cod[i]));
+			}
 			//System.out.println(cc.toString());
 		}catch (DAOException e) {
 			e.printStackTrace();

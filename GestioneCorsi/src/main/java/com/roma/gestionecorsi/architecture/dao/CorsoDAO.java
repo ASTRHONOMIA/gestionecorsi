@@ -156,7 +156,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOCostants {
 		return corsi;
 	}
 	
-	public Date getDate(Connection conn, long id) throws DAOException {
+	public Date getInizioCorso(Connection conn, long id) throws DAOException {
 		PreparedStatement ps;
 		Date data = null;
 		try {

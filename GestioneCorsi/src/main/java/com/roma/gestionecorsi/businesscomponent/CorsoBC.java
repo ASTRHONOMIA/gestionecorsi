@@ -65,4 +65,9 @@ public class CorsoBC {
 	public void updateCorso(Corso corso) throws DAOException {
 		CorsoDAO.getFactory().update(conn, corso);
 	}
+	
+	public int postiDisponibili(long cod) throws DAOException
+	{
+		return CorsoDAO.getFactory().getPostiDisponibi(conn, cod);
+	}
 }

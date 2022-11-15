@@ -25,9 +25,9 @@ public class CorsoBC {
 	public Date getInizioUltimoCorso() throws DAOException {
 		Corso[] corsi = getCorsi();
 		
-		long num = corsi.length;
+		int num = corsi.length;
 		
-		Corso corso = getById(num);
+		Corso corso = getById(corsi[num-1].getCodCorso());
 		
 		return CorsoDAO.getFactory().getInizioCorso(conn, corso.getCodCorso());
 	}

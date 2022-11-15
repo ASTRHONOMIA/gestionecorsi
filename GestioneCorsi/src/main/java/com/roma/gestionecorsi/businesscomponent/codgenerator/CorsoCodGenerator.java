@@ -33,7 +33,7 @@ public class CorsoCodGenerator implements DAOCostants {
 			stmt = conn.createStatement();
 			
 			rs = stmt.executeQuery(SELECT_CORSO_SEQ);
-			
+			rs.next();
 			id = rs.getLong(1);
 		} catch (SQLException e) {
 			throw new DAOException(e);

@@ -20,14 +20,6 @@ public class CorsoBC {
 		CorsoDAO.getFactory().create(conn, corso);
 	}
 	
-	public String getNomeCorsoFrequentato() {
-		String nome = null;
-		
-		//TODO
-		
-		return nome;
-	}
-	
 	public Date getInizioUltimoCorso() throws DAOException {
 		Corso[] corsi = getCorsi();
 		

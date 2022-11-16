@@ -32,7 +32,7 @@ public class CorsoBC {
 		return CorsoDAO.getFactory().getInizioCorso(conn, corso.getCodCorso());
 	}
 	
-	public int getDurataMedia(Corso corso) throws DAOException {
+	public int getDurataCorso(Corso corso) throws DAOException {
 		return CorsoDAO.getFactory().getDurataCorso(conn, corso);
 	}
 	

@@ -106,10 +106,10 @@ class CorsoBCTest {
 	
 	@Test
 	@Order(4)
-	void getDurataMedia() {
+	void getDurataCorso() {
 		try {
-			cBC.getDurataMedia(corso);
-			System.out.println("Durata Media: "+ cBC.getDurataMedia(corso));
+			cBC.getDurataCorso(corso);
+			System.out.println("Durata Corso: "+ cBC.getDurataCorso(corso));
 		}catch (DAOException e) {
 			e.printStackTrace();
 			fail("Motivo: " + e.getMessage());

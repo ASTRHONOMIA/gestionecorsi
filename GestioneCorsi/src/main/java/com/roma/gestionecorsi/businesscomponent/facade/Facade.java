@@ -7,10 +7,12 @@ import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.businesscomponent.AmministratoreBC;
 import com.roma.gestionecorsi.businesscomponent.CorsistaBC;
 import com.roma.gestionecorsi.businesscomponent.CorsoBC;
+import com.roma.gestionecorsi.businesscomponent.CorsoCorsistaBC;
 import com.roma.gestionecorsi.businesscomponent.DocenteBC;
 import com.roma.gestionecorsi.businesscomponent.model.Amministratore;
 import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
+import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 import com.roma.gestionecorsi.businesscomponent.model.Docente;
 
 public class Facade {
@@ -19,6 +21,7 @@ public class Facade {
 	private CorsistaBC cBC;
 	private DocenteBC dBC;
 	private CorsoBC corBC;
+	private CorsoCorsistaBC corcorsBC;
 
 	private Facade() {
 	}
@@ -113,7 +116,7 @@ public class Facade {
 		corBC.deleteCorso(corso);
 	}
 
-	public int numeroCommenti(Corso corso) throws ClassNotFoundException, DAOException, IOException {
+	public int numeroCommenti() throws ClassNotFoundException, DAOException, IOException {
 		corBC = new CorsoBC();
 		return corBC.getNumeroCommenti();
 	}
@@ -127,5 +130,46 @@ public class Facade {
 		corBC = new CorsoBC();
 		return corBC.getCorsiFromDate();
 	}
-
+	
+	public int getDurataCorso(Corso corso) throws ClassNotFoundException, DAOException, IOException
+	{
+		corBC= new CorsoBC();
+		return corBC.getDurataCorso(corso);
+	}
+	
+	public int postiDisponibili(Long cod) throws ClassNotFoundException, DAOException, IOException
+	{
+		corBC=new CorsoBC();
+		return corBC.postiDisponibili(getNumberCorsisti());
+	}
+	
+	//Fine Facede per Corso
+	
+	//Inizio Facede per CorsoCorsista
+	public void createCorsoCorstita(CorsoCorsista corsoCorsista) throws ClassNotFoundException, DAOException, IOException
+	{
+		corcorsBC=new CorsoCorsistaBC();
+		corcorsBC.create(corsoCorsista);
+	}
+	
+	public String[] corsoPiuFrequentato() throws DAOException, ClassNotFoundException, IOException
+	{
+		corcorsBC=new CorsoCorsistaBC();
+		return corcorsBC.corsoPiuFrequentato();
+	}
+	
+	public long[] corsiDelCorsista(long cod) throws ClassNotFoundException, DAOException, IOException
+	{
+		corcorsBC=new CorsoCorsistaBC();
+		return corcorsBC.corsiDelCorsista(cod);
+	}
+	
+	public CorsoCorsista[] getAllCorsoCorsista() throws ClassNotFoundException, DAOException, IOException
+	{
+		corcorsBC= new CorsoCorsistaBC();
+		return corcorsBC.getAll();
+	}
+	//Fine Facede per CorsoCorsista
+	
+	
 }

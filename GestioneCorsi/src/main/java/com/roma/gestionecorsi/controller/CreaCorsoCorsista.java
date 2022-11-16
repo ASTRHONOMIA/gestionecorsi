@@ -18,6 +18,7 @@ public class CreaCorsoCorsista extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			CorsoCorsista corsocorsista = new CorsoCorsista();
+			System.out.println(request.getParameter("CodCorso"));
 			long CodCorso = Long.valueOf(request.getParameter("CodCorso"));
 			long CodCorsista = Long.valueOf(request.getParameter("CodCorsista"));
 			CorsoCorsista[] ccL = Facade.getIstance().getAllCorsoCorsista();

@@ -1,6 +1,3 @@
-<%
-	
-%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.Corsista"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.Corso"%>
@@ -8,7 +5,7 @@
 <div class="modal fade" id="addCorsoModal_0" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
 	<div class="modal-dialog modal-md">
 		<div class="modal-content">
-		<form action="/<%=application.getServletContextName()%>/creaCorsoCorsista?idCorsista=<%=request.getParameter("idCorsista")%>" method="post">
+		<form action="/<%=application.getServletContextName()%>/creaCorsoCorsista" method="post">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -25,15 +22,15 @@
 						for(Corso c : corsi){
 					%>
 						
-						<p><button name="CodCorso" type="submit" class="btn btn-link" 
-						value="<%= c.getCodCorso()%>"> <%= c.getNomeCorso()%> </button></p>
+						<p><input type="radio" name="CodCorso"  class="btn btn-link" 
+						value="<%= c.getCodCorso()%>"> <%= c.getNomeCorso()%></p>
 					<% 
 						}
 					%>
 				</div>
 			</div>
 			<div class="modal-footer">
-					<input type="hidden" name="CodCorsista" value="idCorsista">
+					<input type="hidden" name="CodCorsista" value="<%=request.getParameter("idCorsista") %>">
 					<button type="submit" class="btn btn-success btn-sm "> Iscrivi </button>
 					<button type="button" class="btn btn-danger btn-sm " data-dismiss="modal" aria-label="Close"> Annulla </button>
 			</div>

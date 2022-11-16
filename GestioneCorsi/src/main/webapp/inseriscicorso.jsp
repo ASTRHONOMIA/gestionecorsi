@@ -210,7 +210,7 @@
 				<span class="input-group-addon">
 				<i class="glyphicon glyphicon-user"></i>
 				</span>
-				<input type="text" id="corsisti" placeholder = "Numero corsisti..."; name="corsisti" id="corsisti" value=""><br />
+				<input type="text" id="corsisti" placeholder = "Numero corsisti..." name="corsisti" id="corsisti" value=""><br />
     			<a href="#" id="filldetails" onclick="addFields()">Aggiungi Corsisti</a>
 			</div>
 		</div>

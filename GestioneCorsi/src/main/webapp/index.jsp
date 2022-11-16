@@ -38,7 +38,7 @@
 				<span class="input-group-addon">
 				<i class="glyphicon glyphicon-lock"></i>
 				</span>
-				<input type="text" name="codAdmin" id="codAdmin"
+				<input type="password" name="codAdmin" id="codAdmin"
 				placeholder="Codice admin..." class="form-control">
 			</div>
 		</div>

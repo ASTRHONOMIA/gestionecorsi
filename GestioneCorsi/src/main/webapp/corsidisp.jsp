@@ -53,9 +53,40 @@
 					<td><%=cor[i].getCodDocente()%></td>
 					<td><%=cor[i].getPostiOccupati()%></td>
 					<td>
-						<form action="/<%=application.getServletContextName()%>/rimuoviCorso?id=<%=cor[1]%>" method="post">
-						<button type="submit" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-trash"></span> </button>
-						</form>
+						
+						<button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalCorso_<%=cor[i].getCodCorso()%>"> <span class="glyphicon glyphicon-trash"></span> </button>
+						
+						
+						
+						<!-- The modal -->
+						<div class="modal fade" id="modalCorso_<%=cor[i].getCodCorso()%>" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
+							<div class="modal-dialog modal-md">
+								<div class="modal-content">
+								
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h4 class="modal-title" id="modalLabelSmall" style="text-align:center;">Elimina Corso</h4>
+									</div>
+									
+									<div class="modal-body" style="text-align:center">
+									<div>
+									<p>Sei sicuro di voler eliminare il corso?</p>
+									</div>
+									
+									<form action="/<%=application.getServletContextName()%>/rimuoviCorso?id=<%=cor[i].getCodCorso()%>" method="post">
+										<button type="submit" class="btn btn-danger btn-lg "> Si </button>
+										<button type="button" class="btn btn-primary btn-lg " data-dismiss="modal" aria-label="Close">No</button>
+									</form>
+									</div>
+								</div>
+							</div>
+						</div>
+												
+						
+						
+						
 					</td>
 				</tr>
 				<% 

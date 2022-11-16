@@ -15,7 +15,7 @@
 <jsp:include page="nav.jsp"/>
 <div class="container">
 	<header class="page-header">
-		<h3>Corsi disponibili:</h3>
+		<h3>Corsi disponibili: </h3>
 	</header>
 	
 	<div class="table-responsive">

@@ -24,7 +24,7 @@
 	</header>
 	<div class="panel panel-info" style="margin-top:50px;">
 		<div class="panel-heading">
-			<h3>Corsi frequentati:</h3>
+			<h3>Corsi frequentati: </h3>
 		</div>
 		<div class="panel-body">
 		<% 

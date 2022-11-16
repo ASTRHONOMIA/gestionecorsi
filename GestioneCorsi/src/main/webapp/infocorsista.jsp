@@ -1,3 +1,5 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.DateFormat"%>
 <%
 	long idCorsista = Long.valueOf(request.getParameter("idCorsista"));
 	Corsista corsista = Facade.getIstance().findCorsistaByCod(idCorsista);
@@ -28,14 +30,15 @@
 		</div>
 		<div class="panel-body">
 		<% 
+			DateFormat format = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
 			for(int i=0; i<idCorso.length ; i++){
 				long id = idCorso[i];
 				Corso corso = Facade.getIstance().findByCod(id);
 		%>
 			<h4><%=corso.getNomeCorso()%></h4>
-			<p>Inizio: <%=corso.getDataInizio()%></p>
-			<p>Fine: <%=corso.getDataFine()%></p>
-			<p>Costo: <%=corso.getCosto()%></p>
+			<p>Inizio: <%=format.format(corso.getDataInizio())%></p>
+			<p>Fine: <%=format.format(corso.getDataFine())%></p>
+			<p>Costo: <%=String.format("%.2f",corso.getCosto())%>&euro;</p>
 			<p>Commento: <%=corso.getCommento() %></p>
 			<p>Aula: <%=corso.getAulaCorso()%></p>
 			<p>Posti occupati: <%=corso.getPostiOccupati()%></p>

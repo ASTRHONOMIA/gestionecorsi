@@ -1,6 +1,10 @@
 <%@page import="java.util.Locale"%>
 <%@page import="java.text.DateFormat"%>
 <%
+
+	if(session.getAttribute("nomeAdmin")==null || request.getParameter("idCorsista")==null)
+		response.sendRedirect("index.jsp");
+	else{
 	long idCorsista = Long.valueOf(request.getParameter("idCorsista"));
 	Corsista corsista = Facade.getIstance().findCorsistaByCod(idCorsista);
 	long idCorso[] = Facade.getIstance().corsiDelCorsista(idCorsista);
@@ -53,3 +57,4 @@
 </div>
 </body>
 </html>
+<% } %>

@@ -81,7 +81,7 @@
 		<h3>Inserire i dati del nuovo corso</h3>
 	</header>
 	
-	<form action="/<%=application.getServletContextName()%>/inserisciCorsista" method="post"
+	<form action="/<%=application.getServletContextName()%>/inserisciCorso" method="post"
 	class="form-horizontal" id="adminForm">
 	
 	<div class="form-group">

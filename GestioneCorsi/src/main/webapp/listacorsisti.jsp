@@ -27,7 +27,6 @@
 				<tr>
 					<th>Nome</th>
 					<th>Cognome</th>
-					<th>Codice</th>
 					<th>Precedenti Formativi</th>
 				</tr>
 			<tbody>
@@ -36,10 +35,14 @@
 					for(int i=0; i<c.length ; i++){
 				%>
 				<tr>
-					<td><%= c[i].getNomeCorsista()%></td>
+					<td>
+						<form action="infocorsista.jsp" method="post">
+							<input type="hidden" name="idCorsista" value="<%= c[i].getCodiceCorsista()%>">
+							<button type="submit" class="btn btn-link"> <%= c[i].getNomeCorsista()%> </button>
+						</form>
+					</td>
 					<td><%= c[i].getCognomeCorsista()%></td>
-					<td><%= c[i].getCodiceCorsista()%></td>
-					<td></td>
+					<td><%= c[i].isPrecedentiFormativi()%></td>
 				</tr>
 				<%
 					}

@@ -1,3 +1,11 @@
+<%
+	long idCorsista = Long.valueOf(request.getParameter("idCorsista"));
+	Corsista corsista = Facade.getIstance().findCorsistaByCod(idCorsista);
+	long idCorso[] = Facade.getIstance().corsiDelCorsista(idCorsista);
+%>
+<%@page import="com.roma.gestionecorsi.businesscomponent.facade.Facade"%>
+<%@page import="com.roma.gestionecorsi.businesscomponent.model.Corsista"%>
+<%@page import="com.roma.gestionecorsi.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -10,6 +18,35 @@
 </head>
 <body>
 <jsp:include page="nav.jsp"/>
-
+<div class="container">
+	<header class="page-header">
+		<h3><%=corsista.getNomeCorsista()%> <%=corsista.getCognomeCorsista()%></h3>
+	</header>
+	<div class="panel panel-info" style="margin-top:50px;">
+		<div class="panel-heading">
+			<h3>Corsi frequentati:</h3>
+		</div>
+		<div class="panel-body">
+		<% 
+			for(int i=0; i<idCorso.length ; i++){
+				long id = idCorso[i];
+				Corso corso = Facade.getIstance().findByCod(id);
+		%>
+			<h4><%=corso.getNomeCorso()%></h4>
+			<p>Inizio: <%=corso.getDataInizio()%></p>
+			<p>Fine: <%=corso.getDataFine()%></p>
+			<p>Costo: <%=corso.getCosto()%></p>
+			<p>Commento: <%=corso.getCommento() %></p>
+			<p>Aula: <%=corso.getAulaCorso()%></p>
+			<p>Posti occupati: <%=corso.getPostiOccupati()%></p>
+			<hr>
+		<% 
+			}
+		%>
+		</div>
+	</div>
+	<hr>
+	<a href="listacorsisti.jsp">Torna alla lista dei corsisti</a>
+</div>
 </body>
 </html>

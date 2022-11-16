@@ -78,7 +78,7 @@
 									<form action="/<%=application.getServletContextName()%>/rimuoviCorso?id=<%=cor[i].getCodCorso()%>" method="post">
 										<button type="submit" class="btn btn-danger btn-lg "> Si </button>
 										<button type="button" class="btn btn-primary btn-lg " data-dismiss="modal" aria-label="Close">No</button>
-									</form>
+									</form> 
 									</div>
 								</div>
 							</div>

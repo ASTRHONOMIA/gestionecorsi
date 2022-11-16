@@ -35,18 +35,16 @@
 	</header>
 	
 	
-	<div class="table-responsive col-md-6">
+	<div class="table-responsive ">
 		<table class="table table-hover">
-		<!-- <thead>
-			<tr>
-				<th style="column-span:2; text-align:center;">Statistiche</th>
-			</tr>
-		</thead> -->
+		
 		<tbody>
-				<tr>
-					<th style="width:40%;">Corsisti totali</th>
-					<td style="width:60%;"><%= Facade.getIstance().getNumberCorsisti()%></td>
-				</tr>
+				
+					<tr onclick="window.location.href='listacorsisti.jsp'" style="cursor:pointer">
+						<th style="width:40%;">Corsisti totali</th>
+						<td style="width:60%;"><%= Facade.getIstance().getNumberCorsisti()%></td>
+					</tr>
+				
 				<%if (corsi.length != 0){
 					double durataMedia = sommaDurata / corsi.length;
 					%>
@@ -78,7 +76,7 @@
 				<tr>
 					<th >Durata Media Corsi</th>
 					<td >
-					 	<%= durataMedia  %> 
+					 	<%=String.format("%.0f giorni", durataMedia ) %> 
 					 </td>
 				</tr>
 				<tr>
@@ -94,23 +92,10 @@
 				</tr>
 				<%} %>
 		</tbody>
-				
-			
-				<!-- <tr>
-					<th>Corso pi&ugrave; frequentato</th>
-				</tr>
-				<tr>
-					<th>Corso pi&ugrave; frequentato</th>
-				</tr>
-				<tr>
-					<th>Corso pi&ugrave; frequentato</th>
-				</tr>
-				<tr>
-					<th>Corso pi&ugrave; frequentato</th>
-				</tr>
-			
-			 -->
 		</table>
+		<div>
+			<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage</a>
+		</div>
 	</div>
 	
 	

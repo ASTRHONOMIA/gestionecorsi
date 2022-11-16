@@ -14,18 +14,18 @@
 			<div class="modal-body" >
 				<div class="form-group">
 					<label for="nome">Nome</label>
-					<input type="text" class="form-control" name="nome">
+					<input type="text" class="form-control" name="nome" required>
 				</div>	
 					<div class="form-group">
 						<label for="cognome">Corsista</label>
-						<input type="text" class="form-control" name="cognome">
+						<input type="text" class="form-control" name="cognome" required>
 					</div>
 					<div class="form-group">
 						
 							<label for="precedenti">Precedenti formativi</label>
 						<div class="btn-group">
 							<label>
-							<input type="radio"  name="precedenti" value="1">Si</label>
+							<input type="radio"  name="precedenti" value="1" checked>Si</label>
 							<label>
 							<input type="radio"  name="precedenti" value="0">No</label>
 						</div>

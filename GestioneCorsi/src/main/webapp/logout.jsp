@@ -1,4 +1,15 @@
 <%
+Cookie my_cookie = null;
+Cookie[] my_cookies = null;
+// Get an array of Cookies associated with the this domain
+my_cookies = request.getCookies();
+if( my_cookies != null ) {
+   for (int i = 0; i < my_cookies.length; i++) {
+      my_cookie = my_cookies[i];
+      	my_cookie.setMaxAge(0);
+      	response.addCookie(my_cookie);
+      	}
+   }
 	if(session.getAttribute("nomeAdmin") != null) {
 		session.invalidate();
 %>

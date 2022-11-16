@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.roma.gestionecorsi.businesscomponent.facade.Facade;
+import com.roma.gestionecorsi.businesscomponent.model.Amministratore;
 
 @WebServlet("/controlloAccesso")
 public class ControlloAccesso extends HttpServlet {
@@ -36,8 +37,9 @@ public class ControlloAccesso extends HttpServlet {
 
 		if (nomeAdmin != null && codAdmin != 0) {
 			try {
-				loginAdmin = Facade.getIstance().findAmministratoreByid(codAdmin).getNomeAdmin();
-
+				Amministratore admin=Facade.getIstance().findAmministratoreByid(codAdmin);
+				if(admin!=null)
+					loginAdmin =admin.getNomeAdmin();
 				if (loginAdmin != null) {
 					if (loginAdmin.equals(nomeAdmin)) {
 						session.setAttribute("nomeAdmin", nomeAdmin);

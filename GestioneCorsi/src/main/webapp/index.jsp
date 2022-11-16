@@ -1,3 +1,21 @@
+<%
+Cookie my_cookie = null;
+Cookie[] my_cookies = null;
+// Get an array of Cookies associated with the this domain
+my_cookies = request.getCookies();
+if( my_cookies != null ) {
+   for (int i = 0; i < my_cookies.length; i++) {
+      my_cookie = my_cookies[i];
+      	if(my_cookie.getName().equals("Admin")) //se trova il coockie che mi interessa esce dal ciclo
+      		break;
+      	}
+   }
+		if(my_cookie!=null && my_cookie.getName().equals("Admin"))
+				{
+					session.setAttribute("nomeAdmin", my_cookie.getValue());
+					response.sendRedirect("listacorsisti.jsp");
+				}
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

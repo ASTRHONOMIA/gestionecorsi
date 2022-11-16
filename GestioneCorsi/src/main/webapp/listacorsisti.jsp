@@ -19,6 +19,19 @@
 	<header>
 		<h3>Corsisti attualmente iscritti: </h3>
 	</header>
+	<div  class="btn-group btn-group-justified " role="group" style="margin-bottom:30px;" >
+		<a class="btn btn-info " href="inseriscicorso.jsp" >
+		Inserisci nuovo corsista &nbsp;<span class="glyphicon glyphicon-plus"></span>
+		</a>
+		
+		<a  class="btn btn-info " href="statistiche.jsp">
+		Visualizza statistiche &nbsp;<span class="glyphicon glyphicon-list-alt">
+		</a>
+		
+		<a class="btn btn-info " href="corsidisp.jsp">
+		Rimuovi corso &nbsp;<span class="glyphicon glyphicon-trash">
+		</a>
+	</div>
 	
 	<div class="table-responsive">
 		<table class="table table-hover">
@@ -51,19 +64,7 @@
 		</table>
 	</div>
 	
-	<div class="well well">
-		<a class="btn btn-info btn-lg" href="inseriscicorso.jsp">
-		Inserisci nuovo corsista &raquo;
-		</a>
-		<br><br>
-		<a class="btn btn-info btn-lg" href="statistiche.jsp">
-		Visualizza statistiche &raquo;
-		</a>
-		<br><br>
-		<a class="btn btn-info btn-lg" href="corsidisp.jsp">
-		Rimuovi corso &raquo;
-		</a>
-	</div>
+	
 	
 </div>
 </body>

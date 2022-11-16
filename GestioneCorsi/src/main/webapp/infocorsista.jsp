@@ -52,9 +52,22 @@
 		%>
 		</div>
 	</div>
-	<hr>
-	<a href="listacorsisti.jsp">Torna alla lista dei corsisti</a>
+	<div>
+	<form action="addCorsoModal.jsp" method="post">
+		<input type="hidden" name="CodCorsista" value="<%= corsista.getCodiceCorsista()%>">
+		<button type="button" class="btn btn-primary" data-toggle="modal" 
+		data-target="#addCorsoModal_0">
+		Iscrivi a nuovo corso </button>
+	</form>		
+		<br>
+		<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage</a>
+	</div>
 </div>
 </body>
 </html>
-<% } %>
+<jsp:include page="addCorsoModal.jsp">
+	<jsp:param value="0" name="addCorso"/>
+</jsp:include>
+<%
+	}
+%>

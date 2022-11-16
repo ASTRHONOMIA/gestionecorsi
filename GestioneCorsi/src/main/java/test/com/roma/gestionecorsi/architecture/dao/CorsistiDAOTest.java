@@ -23,6 +23,7 @@ import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 class CorsistiDAOTest {
 	private static Connection conn;
 	private static Corsista corsista;
+	private static Corsista corsista2;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,6 +33,12 @@ class CorsistiDAOTest {
 		corsista.setCognomeCorsista("Tulino");
 		corsista.setCodiceCorsista(1);
 		corsista.setPrecedentiFormativi(false);
+		
+		corsista2 =new Corsista();
+		corsista2.setNomeCorsista("Alessio");
+		corsista2.setCognomeCorsista("Tulino");
+		corsista2.setCodiceCorsista(2);
+		corsista2.setPrecedentiFormativi(false);
 	}
 	
 	@Test
@@ -41,6 +48,7 @@ class CorsistiDAOTest {
 		try
 		{
 			CorsistiDAO.getFactory().create(conn, corsista);
+			CorsistiDAO.getFactory().create(conn, corsista2);
 		}
 		catch(DAOException exc)
 		{
@@ -62,6 +70,7 @@ class CorsistiDAOTest {
 			System.out.println("Aggiornato articolo: ");
 			Corsista cors = CorsistiDAO.getFactory().getById(conn, 1);
 			System.out.println(cors.toString());
+			System.out.println("Numero corsisti totali: "+ CorsistiDAO.getFactory().getNumberCorsisti(conn));
 		} catch (ClassNotFoundException | DAOException | IOException exc) {
 			exc.printStackTrace();
 			fail("Motivo" + exc.getMessage());
@@ -74,8 +83,12 @@ class CorsistiDAOTest {
 	public  void testGetAll()
 	{
 		try {
-		Corsista[]corsista=CorsistiDAO.getFactory().getAll(conn);
-		assertNotNull(corsista);
+			Corsista[]corsista=CorsistiDAO.getFactory().getAll(conn);
+			for(Corsista i: corsista)
+			{
+				System.out.println(i);
+			}
+			assertNotNull(corsista);
 		}
 		catch(DAOException exc)
 		{
@@ -89,6 +102,7 @@ class CorsistiDAOTest {
 		try
 		{
 			CorsistiDAO.getFactory().delete(conn, corsista);
+			CorsistiDAO.getFactory().delete(conn, corsista2);
 			System.out.println("Eliminato corsista");
 			conn.commit();
 			DBAccess.closeConnetion();

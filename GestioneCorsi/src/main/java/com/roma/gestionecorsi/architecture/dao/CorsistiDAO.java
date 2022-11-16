@@ -133,5 +133,21 @@ public class CorsistiDAO implements DAOCostants,GenericDAO<Corsista> {
 		}
 		return corsisti;
 	}
+	
+	public int getNumberCorsisti(Connection conn) throws DAOException
+	{
+		int numero=0;
+		try {
+			Statement stmt;
+			stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT_NUMERO_CORSISTI);
+			if(rs.next())
+				numero=rs.getInt(1);
+		
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return numero;
+	}
 
 }

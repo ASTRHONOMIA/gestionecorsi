@@ -59,6 +59,7 @@ class CorsistaBCTest {
 					corsista.setPrecedentiFormativi(true);
 					cBC.createOrUpdate(corsista);
 					Corsista[] corsisti;
+					System.out.println("Numero corsisti: "+ cBC.getNumberCorsisti());
 					corsisti=cBC.getCorsisti();
 					for(Corsista c : corsisti)
 						System.out.println(c);
@@ -72,7 +73,7 @@ class CorsistaBCTest {
 	static void tearDownAfterClass() throws Exception {
 		try {
 			cBC.delete(corsista);
-			System.err.println("eliminato corista");
+			System.out.println("eliminato corsista");
 		} catch (DAOException exc) {
 			exc.printStackTrace();
 			System.out.println(exc.getMessage());

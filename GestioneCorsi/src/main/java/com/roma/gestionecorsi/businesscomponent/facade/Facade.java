@@ -50,6 +50,11 @@ public class Facade {
 		cBC = new CorsistaBC();
 		cBC.delete(corsista);
 	}
+
+	public int getNumberCorsisti() throws ClassNotFoundException, DAOException, IOException {
+		cBC = new CorsistaBC();
+		return cBC.getNumberCorsisti();
+	}
 	// fine Facade per Corsista
 
 	// Inizio Facede per Amministratore
@@ -87,47 +92,40 @@ public class Facade {
 		corBC.createCorso(corso);
 
 	}
-	
-	public void updateCorso(Corso corso) throws ClassNotFoundException, DAOException, IOException
-	{
-		corBC=new CorsoBC();
+
+	public void updateCorso(Corso corso) throws ClassNotFoundException, DAOException, IOException {
+		corBC = new CorsoBC();
 		corBC.updateCorso(corso);
 	}
-	
+
 	public Corso findByCod(long cod) throws ClassNotFoundException, DAOException, IOException {
-		corBC=new CorsoBC();
+		corBC = new CorsoBC();
 		return corBC.getById(cod);
 	}
-	
-	public Corso[] getCorsi() throws ClassNotFoundException, DAOException, IOException
-	{
-		corBC=new CorsoBC();
+
+	public Corso[] getCorsi() throws ClassNotFoundException, DAOException, IOException {
+		corBC = new CorsoBC();
 		return corBC.getCorsi();
 	}
-	
-	public void deleteCorsi(Corso corso) throws ClassNotFoundException, DAOException, IOException
-	{
-		corBC=new CorsoBC();
+
+	public void deleteCorsi(Corso corso) throws ClassNotFoundException, DAOException, IOException {
+		corBC = new CorsoBC();
 		corBC.deleteCorso(corso);
 	}
-	
-	public int numeroCommenti(Corso corso) throws ClassNotFoundException, DAOException, IOException
-	{
-		corBC=new CorsoBC();
+
+	public int numeroCommenti(Corso corso) throws ClassNotFoundException, DAOException, IOException {
+		corBC = new CorsoBC();
 		return corBC.getNumeroCommenti();
 	}
-	
-	public Date getInizioUltimoCorso() throws ClassNotFoundException, DAOException, IOException
-	{
-		corBC=new CorsoBC();
+
+	public Date getInizioUltimoCorso() throws ClassNotFoundException, DAOException, IOException {
+		corBC = new CorsoBC();
 		return corBC.getInizioUltimoCorso();
 	}
-	
-	public Corso[] getCorsiAperti() throws ClassNotFoundException, DAOException, IOException
-	{
-		corBC= new CorsoBC();
+
+	public Corso[] getCorsiAperti() throws ClassNotFoundException, DAOException, IOException {
+		corBC = new CorsoBC();
 		return corBC.getCorsiFromDate();
 	}
-	
-	
+
 }

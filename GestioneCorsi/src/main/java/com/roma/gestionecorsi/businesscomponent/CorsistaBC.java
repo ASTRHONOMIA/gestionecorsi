@@ -40,6 +40,9 @@ public class CorsistaBC {
 		CorsistiDAO.getFactory().delete(conn, corsista);
 	}
 	
-	
+	public int getNumberCorsisti() throws DAOException
+	{
+		return CorsistiDAO.getFactory().getNumberCorsisti(conn);
+	}
 	
 }

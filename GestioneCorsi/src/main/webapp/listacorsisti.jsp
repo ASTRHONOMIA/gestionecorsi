@@ -49,7 +49,7 @@
 	</div>
 	
 	<div class="well well">
-		<a class="btn btn-info btn-lg" href="/<%=application.getServletContextName()%>/inserisciCorsista">
+		<a class="btn btn-info btn-lg" href="inseriscicorso.jsp">
 		Inserisci nuovo corsista &raquo;
 		</a>
 		<br><br>

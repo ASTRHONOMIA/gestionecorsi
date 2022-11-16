@@ -36,6 +36,18 @@ public class CorsoBC {
 		return CorsoDAO.getFactory().getDurataCorso(conn, corso);
 	}
 	
+	public int getDurataMediaCorsi() throws DAOException {
+		Corso[] corsi = getCorsi();
+		int numCorsi = corsi.length;
+		int giorni = 0;
+		
+		for (int i = 0; i < corsi.length; i++) {
+			giorni += getDurataCorso(corsi[i]);
+		}
+		
+		return giorni/numCorsi;
+	}
+	
 	public int getNumeroCommenti() throws DAOException {
 		return CorsoDAO.getFactory().getNumeroCommenti(conn);
 	}

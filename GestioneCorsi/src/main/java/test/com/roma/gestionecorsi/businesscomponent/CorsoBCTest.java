@@ -159,6 +159,17 @@ class CorsoBCTest {
 		}
 	}
 	
+	@Test
+	@Order(7)
+	void getDurataMediaCorsi() {
+		try {
+			System.out.println(cBC.getDurataMediaCorsi());
+		}catch (DAOException e) {
+			e.printStackTrace();
+			fail("Motivo: " + e.getMessage());
+		}
+	}
+	
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {

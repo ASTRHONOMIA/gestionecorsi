@@ -16,11 +16,12 @@
 <body>
 <jsp:include page="nav.jsp"/>
 <div class="container">
+	<jsp:include  page ="creaCorsistaModal.jsp"/>
 	<header>
 		<h3>Corsisti attualmente iscritti: </h3>
 	</header>
 	<div  class="btn-group btn-group-justified " role="group" style="margin-bottom:30px;" >
-		<a class="btn btn-info " href="inseriscicorso.jsp" >
+		<a class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal" href="#">
 		Inserisci nuovo corsista &nbsp;<span class="glyphicon glyphicon-plus"></span>
 		</a>
 		

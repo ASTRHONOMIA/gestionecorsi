@@ -12,7 +12,7 @@
 <jsp:include page="nav.jsp"/>
 <div class="container">
 	<header class="page-header">
-		<h3>Inserire i dati per effettuare l'accesso</h3>
+		<h3>Inserire i dati per effettuare l'accesso </h3>
 	</header>
 	
 	<form action="/<%=application.getServletContextName()%>/controlloAccesso" method="post"

@@ -1,3 +1,6 @@
+<%
+	if(session.getAttribute("nomeAdmin") != null) {
+%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.facade.Facade"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.Corsista"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -62,3 +65,8 @@
 </div>
 </body>
 </html>
+<%
+	} else {
+		response.sendRedirect("index.jsp");
+	}
+%>

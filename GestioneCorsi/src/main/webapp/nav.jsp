@@ -10,8 +10,8 @@
     </div>
     <div class="collapse navbar-collapse" id="menuApp">
     <%
-    	String codAdmin = (String) session.getAttribute("codAdmin");
-    	if(codAdmin == null){
+    	String nomeAdmin = (String) session.getAttribute("nomeAdmin");
+    	if(nomeAdmin == null){
     %>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -26,12 +26,12 @@
         <li>
     		<a href="#">
         	<span class="glyphicon glyphicon-user"></span>
-        	<%=codAdmin%>
+        	<%=nomeAdmin%>
         	</a>
         </li>
         <li>
-    		<a href="#">
-        	<span class="glyphicon glyphicon-off"></span>Logout
+    		<a href="logout.jsp">
+        	<span class="glyphicon glyphicon-off"></span>&nbsp;Logout
         	</a>
         </li>
       </ul>

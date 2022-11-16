@@ -40,7 +40,7 @@ public class ControlloAccesso extends HttpServlet {
 
 				if (loginAdmin != null) {
 					if (loginAdmin.equals(nomeAdmin)) {
-						session.setAttribute("codAdmin", nomeAdmin);
+						session.setAttribute("nomeAdmin", nomeAdmin);
 						response.sendRedirect("listacorsisti.jsp");
 					} else {
 						if (loginAttempt > 3){

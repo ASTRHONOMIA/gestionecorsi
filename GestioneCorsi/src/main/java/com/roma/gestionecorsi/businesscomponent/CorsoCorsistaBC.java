@@ -19,4 +19,18 @@ public class CorsoCorsistaBC {
 		CorsoCorsistaDAO.getFactory().create(conn, cc);
 	}
 	
+	public String[] corsoPiuFrequentato() throws DAOException
+	{
+		return CorsoCorsistaDAO.getFactory().CorsoPiuFrequentato(conn);
+	}
+	
+	public long[] corsiDelCorsista(long cod) throws DAOException
+	{
+		return CorsoCorsistaDAO.getFactory().corsiDelCorsista(conn, cod);
+	}
+	
+	public CorsoCorsista[] getAll() throws DAOException
+	{
+		return CorsoCorsistaDAO.getFactory().getAll(conn);
+	}
 }

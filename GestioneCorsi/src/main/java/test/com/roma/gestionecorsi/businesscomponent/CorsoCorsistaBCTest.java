@@ -81,7 +81,22 @@ class CorsoCorsistaBCTest {
 			cc.setCodCorso(corso.getCodCorso());
 			cc.setCodCorsista(corsista.getCodiceCorsista());
 			ccBC.create(cc);
-			System.out.println(cc.toString());
+			CorsoCorsista[] ccor=ccBC.getAll();
+			System.out.println("Corsi Presenti:");
+			for(CorsoCorsista i: ccor)
+			{
+				System.out.println(i);
+			}
+			System.out.println("Corso piu frequentato: ");
+			for(String i: ccBC.corsoPiuFrequentato())
+			{
+				System.out.println(i);
+			}
+			System.out.println("Corsi del corsista: ");
+			for(long i: ccBC.corsiDelCorsista(corsista.getCodiceCorsista()))
+			{
+				System.out.println(cBC.getById(i));
+			}
 			
 		}catch (ClassNotFoundException | DAOException | IOException e) {
 			e.printStackTrace();

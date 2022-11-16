@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.RowSet;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
 import com.roma.gestionecorsi.businesscomponent.model.Corsista;
+import com.roma.gestionecorsi.businesscomponent.model.Corso;
 import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 
 public class CorsoCorsistaDAO extends GenericDAOAdapter<CorsoCorsista> implements DAOCostants {
@@ -90,5 +92,35 @@ public class CorsoCorsistaDAO extends GenericDAOAdapter<CorsoCorsista> implement
 		}
 		return codici;
 	}
+
+	@Override
+	public CorsoCorsista[] getAll(Connection conn) throws DAOException {
+		CorsoCorsista[] corsoCorsista = null;
+		try {
+			Statement stmt = conn.createStatement(
+					RowSet.TYPE_SCROLL_INSENSITIVE,
+					RowSet.CONCUR_READ_ONLY);
+			
+			ResultSet rs = stmt.executeQuery(SELECT_CORSO_CORSISTA);
+			
+			rs.last();
+			
+			corsoCorsista = new CorsoCorsista[rs.getRow()];
+			
+			rs.beforeFirst();
+			for(int i = 0; rs.next(); i++) {
+				CorsoCorsista corcors = new CorsoCorsista();
+				
+				corcors.setCodCorso(rs.getLong(1));
+				corcors.setCodCorsista(rs.getLong(2));
+				corsoCorsista[i] = corcors;
+			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
+		return corsoCorsista;
+	}
+	
+	
 	
 }

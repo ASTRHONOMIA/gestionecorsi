@@ -8,18 +8,21 @@ import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import com.roma.gestionecorsi.architecture.dao.CorsistiDAO;
 import com.roma.gestionecorsi.architecture.dao.CorsoCorsistaDAO;
 import com.roma.gestionecorsi.architecture.dao.CorsoDAO;
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
-import com.roma.gestionecorsi.businesscomponent.CorsoBC;
 import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
 import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 
+@TestMethodOrder(OrderAnnotation.class)
 class CorsoCorsistaDAOTest {
 	private static Connection conn;
 	private static Corso corso;
@@ -96,6 +99,7 @@ class CorsoCorsistaDAOTest {
 	
 
 	@Test
+	@Order(1)
 	void corsoCorsistaTest() throws DAOException {
 		try {
 			CorsoDAO.getFactory().create(conn, corso3);
@@ -123,7 +127,26 @@ class CorsoCorsistaDAOTest {
 		}
 		
 	}
-
+	@Test
+	@Order(2)
+	void getAllCorsoCorsistaTest()
+	{
+		try {
+			CorsoCorsista[] corsoCorsista=CorsoCorsistaDAO.getFactory().getAll(conn);
+			System.out.println("Corsi Corsista presenti:");
+			for(CorsoCorsista i: corsoCorsista)
+			{
+				System.out.println(i.toString());
+			}
+		} catch (DAOException e) {
+			e.printStackTrace();
+			fail("Motivo: "+e.getMessage());
+		}
+	}
+	
+	
+	
+	
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		try {

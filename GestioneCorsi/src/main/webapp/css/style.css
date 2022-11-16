@@ -19,3 +19,7 @@ nav.navbar{
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 }
+
+.navbar-default .navbar-nav > li > a {
+color: #344055;
+}

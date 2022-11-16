@@ -21,15 +21,15 @@
 		<h3>Corsisti attualmente iscritti: </h3>
 	</header>
 	<div  class="btn-group btn-group-justified " role="group" style="margin-bottom:30px;" >
-		<a class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal" href="#">
+		<a class="btn btn-info " style="background-color:LightSkyBlue;color:#344055;" data-toggle="modal" data-target="#editModal" href="#">
 		Inserisci nuovo corsista &nbsp;<span class="glyphicon glyphicon-plus"></span>
 		</a>
 		
-		<a  class="btn btn-info " href="statistiche.jsp">
+		<a  class="btn btn-info " href="statistiche.jsp" style="background-color:LightSkyBlue;color:#344055;" >
 		Visualizza statistiche &nbsp;<span class="glyphicon glyphicon-list-alt">
 		</a>
 		
-		<a class="btn btn-info " href="corsidisp.jsp">
+		<a class="btn btn-info " href="corsidisp.jsp" style="background-color:LightSkyBlue;color:#344055;">
 		Rimuovi corso &nbsp;<span class="glyphicon glyphicon-trash">
 		</a>
 	</div>

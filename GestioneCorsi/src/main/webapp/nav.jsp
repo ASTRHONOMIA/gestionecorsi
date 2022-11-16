@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="background-color:LightSkyBlue; border-top:none">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" 

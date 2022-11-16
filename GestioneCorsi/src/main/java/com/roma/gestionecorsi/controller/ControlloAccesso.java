@@ -47,7 +47,6 @@ public class ControlloAccesso extends HttpServlet {
 						Cookie adminCookie = new Cookie("Admin", (String) request.getParameter("nomeAdmin"));
 						adminCookie.setMaxAge(60*60*24); 
 						response.addCookie(adminCookie);
-						response.sendRedirect("#");
 						response.sendRedirect("listacorsisti.jsp");
 					} else {
 						if (loginAttempt > 3){

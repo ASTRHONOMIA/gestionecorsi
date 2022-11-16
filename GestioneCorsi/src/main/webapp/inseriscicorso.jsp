@@ -161,6 +161,19 @@
 	</div>
 	
 	<div class="form-group">
+		<label class="col-md-2 control-label">Costo Corso</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group">
+				<span class="input-group-addon">
+				<i class="glyphicon glyphicon-book"></i>
+				</span>
+				<input type="number" name="costoCorso" id="costoCorso"
+				placeholder="costo corso..." class="form-control">
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
 		<label class="col-md-2 control-label">Precedenti Formativi</label>
 		<div class="col-md-4 inputGroupContainer">
 			<div class="input-group">

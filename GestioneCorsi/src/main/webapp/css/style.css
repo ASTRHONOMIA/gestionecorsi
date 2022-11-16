@@ -23,3 +23,42 @@ nav.navbar{
 .navbar-default .navbar-nav > li > a {
 color: #344055;
 }
+
+footer {
+	position:absolute;
+	bottom: 0;
+	height:300px;
+	width:100%;
+	background-color: LightSkyBlue;
+	color: #344055;
+}
+@media screen and (max-width:700px) {
+	footer {
+	height:480px;
+	}
+	body{
+	margin-bottom:500px;
+	}
+}
+
+
+
+footer nav{
+	float: left;
+	padding:30px;
+	color: #344055;
+}
+footer section {
+	float:left;
+	padding:30px;
+	
+}
+
+p.copyright {
+	clear: both;
+	margin-left:30px;
+	margin-bottom:30px;
+}
+footer a{
+	color: #344055;
+}

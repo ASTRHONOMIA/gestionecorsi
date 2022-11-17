@@ -181,9 +181,9 @@
 				<i class="glyphicon glyphicon-book"></i>
 				</span>
 				<fieldset>&nbsp;
-					<input type="radio" id="si" name="precedenteFormativo" value="SI">
+					<input type="radio" id="si" name="precedenteFormativo" value="true">
 					<label for="si">Si</label>&nbsp;
-					<input type="radio" id="no" name="precedenteFormativo" value="NO">
+					<input type="radio" id="no" name="precedenteFormativo" value="false">
 					<label for="no">No</label>
 				</fieldset>
 			</div>

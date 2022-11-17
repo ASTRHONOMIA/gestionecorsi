@@ -2,6 +2,7 @@ package com.roma.gestionecorsi.businesscomponent.facade;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.businesscomponent.AmministratoreBC;
@@ -169,6 +170,14 @@ public class Facade {
 		corcorsBC= new CorsoCorsistaBC();
 		return corcorsBC.getAll();
 	}
+	
+	public Corso[] getCorsiPrenotabili(long cod) throws ClassNotFoundException, DAOException, IOException
+	{
+		corcorsBC= new CorsoCorsistaBC();
+		return corcorsBC.getCorsiPrenotabili(cod);
+	}
+	
+	
 	//Fine Facede per CorsoCorsista
 	
 	

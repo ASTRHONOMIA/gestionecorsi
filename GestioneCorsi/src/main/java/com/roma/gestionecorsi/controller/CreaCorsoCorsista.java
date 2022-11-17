@@ -17,8 +17,13 @@ public class CreaCorsoCorsista extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		try {
+			if(request.getParameter("CodCorso") == null || request.getParameter("CodCorsista") == null) {
+				response.sendRedirect("infocorsista.jsp");
+			}else {
+				
+			
 			CorsoCorsista corsocorsista = new CorsoCorsista();
-			System.out.println(request.getParameter("CodCorso"));
+			
 			long CodCorso = Long.valueOf(request.getParameter("CodCorso"));
 			long CodCorsista = Long.valueOf(request.getParameter("CodCorsista"));
 			CorsoCorsista[] ccL = Facade.getIstance().getAllCorsoCorsista();
@@ -29,6 +34,7 @@ public class CreaCorsoCorsista extends HttpServlet {
 			corsocorsista.setCodCorsista(CodCorsista);
 			Facade.getIstance().createCorsoCorstita(corsocorsista);
 			response.sendRedirect("infocorsista.jsp");
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 			throw new ServletException(e.getMessage());

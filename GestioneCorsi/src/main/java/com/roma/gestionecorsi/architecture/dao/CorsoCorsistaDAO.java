@@ -10,7 +10,6 @@ import javax.sql.RowSet;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
-import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
 import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 
@@ -120,6 +119,41 @@ public class CorsoCorsistaDAO extends GenericDAOAdapter<CorsoCorsista> implement
 		}
 		return corsoCorsista;
 	}
+	
+	public Corso[] getCorsiPrenotabili(Connection conn, long cod) throws DAOException {
+		
+		Corso[] corso = null;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_CORSI_PRENOTABILI,
+					ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_READ_ONLY);
+			ps.setLong(1, cod);
+			ResultSet rs = ps.executeQuery();
+			rs.last();
+			corso= new Corso[rs.getRow()];
+			rs.beforeFirst();
+			
+			for(int i = 0; rs.next(); i++) {
+				Corso cor = new Corso();
+				cor.setCodCorso(rs.getLong(1));;
+				cor.setNomeCorso(rs.getString(2));;
+				cor.setDataInizio(new java.util.Date(rs.getDate(3).getTime()));;
+				cor.setDataFine(new java.util.Date(rs.getDate(4).getTime()));
+				cor.setCosto(rs.getDouble(5));;
+				cor.setCommento(rs.getString(6));;
+				cor.setAulaCorso(rs.getString(7));;
+				cor.setCodDocente(rs.getLong(8));;
+				cor.setPostiOccupati(rs.getInt(9));;
+				
+				corso[i] = cor;
+			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
+		return corso;
+	}
+	
 	
 	
 	

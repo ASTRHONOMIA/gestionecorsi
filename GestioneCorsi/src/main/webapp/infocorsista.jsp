@@ -24,22 +24,54 @@
 </head>
 <body>
 <jsp:include page="nav.jsp"/>
-<div class="container">
+<div class="container" style="justify-content:space-between;">
 	<header class="page-header">
 		<h3><%=corsista.getNomeCorsista()%> <%=corsista.getCognomeCorsista()%></h3>
+		
+	
+		
+			
 	</header>
-	<div class="panel panel-info" style="margin-top:50px;">
-		<div class="panel-heading">
-			<h3>Corsi frequentati: </h3>
-		</div>
-		<div class="panel-body">
-		<% 
+	
+	<div class="row"  style="justify-content:flex-start;" >
+		
+		<form action="addCorsoModal.jsp" method="post" >
+				<input type="hidden" name="CodCorsista" value="<%= corsista.getCodiceCorsista()%>">
+				<button type="button" class="btn btn-primary" data-toggle="modal" 
+				data-target="#addCorsoModal_0">
+				Iscrivi a nuovo corso </button>
+				<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage</a>
+		</form>		
+			
+	
+		
+		
+		
+		
+	</div>
+	
+	<div class="row" style="justify-content:space-between; margin-top:50px;">
+	
+	<% 
 			DateFormat format = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
 			for(int i=0; i<idCorso.length ; i++){
 				long id = idCorso[i];
 				Corso corso = Facade.getIstance().findByCod(id);
-		%>
-			<h4><%=corso.getNomeCorso()%></h4>
+	%>
+	
+	<div class=" col-md-3 col-sm-5 col-xs-12" style="display:inline-block;">
+	
+	<div class="panel panel-info" >
+		
+	
+	
+	
+		<div class="panel-heading">
+			<h3><%=corso.getNomeCorso()%></h3>
+		</div>
+		<div class="panel-body">
+		
+			<h4></h4>
 			<p>Inizio: <%=format.format(corso.getDataInizio())%></p>
 			<p>Fine: <%=format.format(corso.getDataFine())%></p>
 			<p>Costo: <%=String.format("%.2f",corso.getCosto())%>&euro;</p>
@@ -47,21 +79,21 @@
 			<p>Aula: <%=corso.getAulaCorso()%></p>
 			<p>Posti occupati: <%=corso.getPostiOccupati()%></p>
 			<hr>
-		<% 
-			}
-		%>
+		
 		</div>
 	</div>
-	<div>
-	<form action="addCorsoModal.jsp" method="post">
-		<input type="hidden" name="CodCorsista" value="<%= corsista.getCodiceCorsista()%>">
-		<button type="button" class="btn btn-primary" data-toggle="modal" 
-		data-target="#addCorsoModal_0">
-		Iscrivi a nuovo corso </button>
-	</form>		
-		<br>
-		<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage</a>
+	
+	
 	</div>
+	
+	
+	
+	
+	<% 
+		}
+	%>
+	
+</div>
 </div>
 </body>
 </html>

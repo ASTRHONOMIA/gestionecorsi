@@ -6,6 +6,7 @@ import java.sql.Connection;
 import com.roma.gestionecorsi.architecture.dao.CorsoCorsistaDAO;
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
+import com.roma.gestionecorsi.businesscomponent.model.Corso;
 import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 
 public class CorsoCorsistaBC {
@@ -33,4 +34,12 @@ public class CorsoCorsistaBC {
 	{
 		return CorsoCorsistaDAO.getFactory().getAll(conn);
 	}
+	//Corsi disponibili per il corsista
+	
+	public Corso[] getCorsiPrenotabili(long cod) throws DAOException
+	{
+		return CorsoCorsistaDAO.getFactory().getCorsiPrenotabili(conn, cod);
+	}
+	
+	
 }

@@ -1,7 +1,10 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.Corsista"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.Corso"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.facade.Facade"%>
+
 <div class="modal fade" id="addCorsoModal_0" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
 	<div class="modal-dialog modal-md">
 		<div class="modal-content">
@@ -14,25 +17,40 @@
 			</div>
 									
 			<div class="modal-body">
-				<p>Seleziona il corso</p>
-				<div class="btn-group">
-        		
-					<% 
-						Corso[] corsi = Facade.getIstance().getCorsi();
-						for(Corso c : corsi){
-					%>
+				
+				<div class="form-group">
+				<% 
+							Corso[] corsi=Facade.getIstance().getCorsiPrenotabili(Long.valueOf(request.getParameter("idCorsista")));
+									if(corsi.length ==0){%>
+									
+									
+									<h3>Non ci sono corsi disponibili!</h3>
+									
+									<%}else{ %>
+				
+					<label for="CodCorso">Seleziona uno dei corsi disponibili</label>
+					<select class="form-control" name="CodCorso" id="CodCorso" >
+	        		
+						<%for(Corso c : corsi){ %>
+							
+							<option value="<%= c.getCodCorso()%>"><%= c.getNomeCorso()%></option>
+						<% 
+							
+							}
+									}
+								
 						
-						<p><input type="radio" name="CodCorso"  class="btn btn-link" 
-						value="<%= c.getCodCorso()%>"> <%= c.getNomeCorso()%></p>
-					<% 
-						}
-					%>
+						%>
+							
+					</select>
 				</div>
 			</div>
 			<div class="modal-footer">
 					<input type="hidden" name="CodCorsista" value="<%=request.getParameter("idCorsista") %>">
-					<button type="submit" class="btn btn-success btn-sm "> Iscrivi </button>
-					<button type="button" class="btn btn-danger btn-sm " data-dismiss="modal" aria-label="Close"> Annulla </button>
+					
+						<button type="submit" class="btn btn-success btn-md "> Iscrivi </button>
+						<button type="button" class="btn btn-danger btn-md " data-dismiss="modal" aria-label="Close"> Annulla </button>
+					
 			</div>
 		</form>
 		</div>

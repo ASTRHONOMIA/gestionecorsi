@@ -30,4 +30,5 @@ public interface DAOCostants {
 	
 	String SELECT_DOCENTE="Select * from docente";
 	String SELECT_DOCENTE_BYCOD ="Select * from docente where cod_docente = ?";
+	String SELECT_CORSI_PRENOTABILI="select * from corso where cod_corso not in(select cod_corso from corso_corsista where cod_corsista=?)and posti_occupati<12 and data_fine>=SYSDATE";
 }

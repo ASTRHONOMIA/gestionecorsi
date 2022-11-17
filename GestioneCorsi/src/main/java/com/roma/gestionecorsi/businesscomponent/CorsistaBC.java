@@ -45,4 +45,6 @@ public class CorsistaBC {
 		return CorsistiDAO.getFactory().getNumberCorsisti(conn);
 	}
 	
+	
+	
 }

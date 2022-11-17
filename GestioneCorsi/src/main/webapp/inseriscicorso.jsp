@@ -7,7 +7,7 @@
 <html>
 <head>
 <%@ include file="CDN.html" %>
-<script type='text/javascript'>
+<!-- <script type='text/javascript'>
         function addFields(){
             // Generate a dynamic number of inputs
             var number = document.getElementById("corsisti").value;
@@ -69,7 +69,7 @@
 
             }
         }
-</script>
+</script> -->
 <meta charset="ISO-8859-1">
 <title>Lista Corsisti</title>
 <link rel="stylesheet" href="css/style.css">
@@ -173,7 +173,7 @@
 		</div>
 	</div>
 	
-	<div class="form-group">
+	<!-- <div class="form-group">
 		<label class="col-md-2 control-label">Precedenti Formativi</label>
 		<div class="col-md-4 inputGroupContainer">
 			<div class="input-group">
@@ -188,7 +188,7 @@
 				</fieldset>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	
 	<div class="form-group">
 		<label class="col-md-2 control-label">Aula Corso</label>
@@ -216,7 +216,7 @@
 		</div>
 	</div>
 	
-	<div class="form-group">
+	<!-- <div class="form-group">
 		<label class="col-md-2 control-label">Numero Corsisti</label>
 		<div class="col-md-4 inputGroupContainer">
 			<div class="input-group">
@@ -228,7 +228,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="container" class="row"></div>
+	<div id="container" class="row"></div> -->
 	
 	<div class="row">
 		<div class="col-md-4 col-md-offset-1">

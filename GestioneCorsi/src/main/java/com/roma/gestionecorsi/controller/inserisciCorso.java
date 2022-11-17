@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.roma.gestionecorsi.businesscomponent.facade.Facade;
-import com.roma.gestionecorsi.businesscomponent.model.Corsista;
+//import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
-import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
+//import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 import com.roma.gestionecorsi.businesscomponent.model.Docente;
 
 
@@ -25,7 +25,7 @@ public class inserisciCorso extends HttpServlet {
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		Corso corso = new Corso();
 		
-		int num = Integer.valueOf(request.getParameter("corsisti"));
+		//int num = Integer.valueOf(request.getParameter("corsisti"));
 		
 		try {
 			Docente[] docenti = Facade.getIstance().getDocenti();
@@ -43,13 +43,13 @@ public class inserisciCorso extends HttpServlet {
 			corso.setCommento(request.getParameter("commento"));
 			corso.setCosto(Double.valueOf(request.getParameter("costoCorso")));
 			corso.setAulaCorso(request.getParameter("aulaCorso"));
-			corso.setPostiOccupati(num);
+			corso.setPostiOccupati(0);
 			corso.setCodDocente(idDoc);
 			
 			Facade f = Facade.getIstance();
 			f.createCorso(corso);
 			
-			for (int i = 0; i < num; i++) {
+			/*for (int i = 0; i < num; i++) {
 				Corsista corsista = new Corsista();
 				
 				corsista.setNomeCorsista(request.getParameter("nomecorsista"+i));
@@ -64,7 +64,7 @@ public class inserisciCorso extends HttpServlet {
 				corsoCorsista.setCodCorso(corso.getCodCorso());
 				
 				f.createCorsoCorstita(corsoCorsista);
-			}
+			}*/
 			
 			response.sendRedirect("listacorsisti.jsp");
 		} catch (Exception e) {

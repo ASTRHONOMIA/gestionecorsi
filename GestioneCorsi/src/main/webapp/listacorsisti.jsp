@@ -26,11 +26,11 @@
 		</a>
 		
 		<a  class="btn btn-info " href="statistiche.jsp" style="background-color:LightSkyBlue;color:#344055;" >
-		Visualizza statistiche &nbsp;<span class="glyphicon glyphicon-list-alt">
+		Visualizza statistiche &nbsp;<span class="glyphicon glyphicon-list-alt"></span>
 		</a>
 		
 		<a class="btn btn-info " href="corsidisp.jsp" style="background-color:LightSkyBlue;color:#344055;">
-		Rimuovi corso &nbsp;<span class="glyphicon glyphicon-trash">
+		Rimuovi corso &nbsp;<span class="glyphicon glyphicon-trash"></span>
 		</a>
 	</div>
 	
@@ -56,7 +56,17 @@
 						</form>
 					</td>
 					<td><%= c[i].getCognomeCorsista()%></td>
-					<td><%= c[i].isPrecedentiFormativi()%></td>
+					<%
+						if(c[i].isPrecedentiFormativi()==(true)){
+					%>
+					<td>Si</td>
+					<%
+						} else{
+					%>
+					<td>No</td>
+					<%
+						}
+					%>
 				</tr>
 				<%
 					}
@@ -64,9 +74,6 @@
 			</tbody>
 		</table>
 	</div>
-	
-	
-	
 </div>
 <footer>
 	<%@include file="footer.html" %>

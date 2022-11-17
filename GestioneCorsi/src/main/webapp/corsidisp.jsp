@@ -1,3 +1,6 @@
+<%@page import="com.roma.gestionecorsi.businesscomponent.model.Docente"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%
 Cookie my_cookie = null;
 Cookie[] my_cookies = null;
@@ -18,10 +21,6 @@ if( my_cookies != null ) {
 			response.sendRedirect("index.jsp");
 		else{
 %>
-
-<%@page import="java.util.Locale"%>
-<%@page import="java.text.DateFormat"%>
-<%@page import="java.sql.Date"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.facade.Facade"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.Corso"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -42,8 +41,8 @@ if( my_cookies != null ) {
 	</header>
 	
 	<div class="table-responsive">
-		<table class="table table-hover">
-			<thead>
+		<table class="table table-hover" style="text-align: center;">
+			<thead style="background-color:LightSkyBlue;color:#344055;text-align: center;">
 				<tr>
 					<th>Nome</th>
 					<th>Inizio</th>
@@ -58,26 +57,25 @@ if( my_cookies != null ) {
 			</thead>
 			<tbody>
 				<% 
-					DateFormat format = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
+					Date data = new Date();
+					SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 					Corso[] cor = Facade.getIstance().getCorsi();
-					long ms = System.currentTimeMillis();
 					for(int i=0; i<cor.length ; i++){
-						if(cor[i].getDataInizio().compareTo(new Date(ms))>0){
+						if(cor[i].getDataInizio().compareTo(data)>0){
+							Docente d = Facade.getIstance().findDocenteById(cor[i].getCodDocente());
 				%>
 				<tr>
 					<td><%=cor[i].getNomeCorso()%></td>
-					<td><%=format.format(cor[i].getDataInizio())%></td>
-					<td><%=format.format(cor[i].getDataFine())%></td>
+					<td><%=df.format(cor[i].getDataInizio())%></td>
+					<td><%=df.format(cor[i].getDataFine())%></td>
 					<td><%=String.format("%.2f",cor[i].getCosto())%>&euro;</td>
 					<td><%=cor[i].getCommento()%></td>
 					<td><%=cor[i].getAulaCorso()%></td>
-					<td><%=cor[i].getCodDocente()%></td>
+					<td><%=d.getCognomeDocente()%></td>
 					<td><%=cor[i].getPostiOccupati()%></td>
 					<td>
 						
 						<button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalCorso_<%=cor[i].getCodCorso()%>"> <span class="glyphicon glyphicon-trash"></span> </button>
-						
-						
 						
 						<!-- The modal -->
 						<div class="modal fade" id="modalCorso_<%=cor[i].getCodCorso()%>" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
@@ -104,9 +102,6 @@ if( my_cookies != null ) {
 								</div>
 							</div>
 						</div>
-												
-						
-						
 						
 					</td>
 				</tr>
@@ -117,7 +112,15 @@ if( my_cookies != null ) {
 			</tbody>
 		</table>
 	</div>
+	<div  class="btn-group btn-group-justified " role="group" style="margin-bottom:30px;" >
+	<a  class="btn btn-default" href="listacorsisti.jsp">
+		HomePage &nbsp;<span class="glyphicon glyphicon-home"></span>
+		</a>
+	</div>
 </div>
+<footer>
+	<%@include file="footer.html" %>
+</footer>
 </body>
 </html>
 <% } %>

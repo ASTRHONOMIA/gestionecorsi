@@ -90,5 +90,10 @@ public class Validazione {
 
 		return false;
 	}
+	
+	public boolean convalidaCosto(Double costo)
+	{
+		return costo>0;
+	}
 
 }

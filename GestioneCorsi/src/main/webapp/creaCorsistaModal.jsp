@@ -17,7 +17,7 @@
 					<input type="text" class="form-control" name="nome" required>
 				</div>	
 					<div class="form-group">
-						<label for="cognome">Corsista</label>
+						<label for="cognome">Cognome</label>
 						<input type="text" class="form-control" name="cognome" required>
 					</div>
 					<div class="form-group">

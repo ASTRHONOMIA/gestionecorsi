@@ -109,12 +109,15 @@ if( my_cookies != null ) {
 		</tbody>
 		</table>
 		<div>
-			<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage</a>
+			<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage  <span class="glyphicon glyphicon-home"></span></a>
 		</div>
 	</div>
 	
 	
 </div>
+<footer>
+	<%@include file="footer.html" %>
+</footer>
 </body>
 </html>
 <%

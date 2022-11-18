@@ -240,6 +240,9 @@
 	</form>
 	
 </div>
+<footer>
+	<%@include file="footer.html" %>
+</footer>
 </body>
 </html>
 <%

@@ -28,15 +28,17 @@ public class inserisciCorso extends HttpServlet {
 		//int num = Integer.valueOf(request.getParameter("corsisti"));
 		
 		try {
-			Docente[] docenti = Facade.getIstance().getDocenti();
-			String nomeDoc = request.getParameter("nomeDocente");
-			long idDoc = 0;
+			/*Docente[] docenti = Facade.getIstance().getDocenti();
+				String nomeDoc = request.getParameter("nomeDocente");
+				long idDoc = 0;
 			
-			for (Docente docente : docenti) {
+				for (Docente docente : docenti) {
 				if(docente.getNomeDocente().equals(nomeDoc))
 					idDoc = docente.getCodDocente();
-			}
+				}
+			*/
 			
+			long codDocente= Long.valueOf(request.getParameter("CodDocente"));
 			corso.setNomeCorso(request.getParameter("nomeCorso"));
 			corso.setDataInizio(formato.parse(request.getParameter("dataInizio")));
 			corso.setDataFine(formato.parse(request.getParameter("dataFine")));
@@ -44,7 +46,7 @@ public class inserisciCorso extends HttpServlet {
 			corso.setCosto(Double.valueOf(request.getParameter("costoCorso")));
 			corso.setAulaCorso(request.getParameter("aulaCorso"));
 			corso.setPostiOccupati(0);
-			corso.setCodDocente(idDoc);
+			corso.setCodDocente(codDocente);
 			
 			Facade f = Facade.getIstance();
 			f.createCorso(corso);
@@ -67,6 +69,7 @@ public class inserisciCorso extends HttpServlet {
 			}*/
 			
 			response.sendRedirect("listacorsisti.jsp");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ServletException(e.getMessage());

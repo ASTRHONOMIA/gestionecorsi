@@ -75,5 +75,8 @@ if( my_cookies != null ) {
 	</div>
 	</form>
 </div>
+<footer>
+	<%@include file="footer.html" %>
+</footer>
 </body>
 </html>

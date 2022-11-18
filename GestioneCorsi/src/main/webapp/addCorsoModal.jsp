@@ -19,6 +19,8 @@
 			<div class="modal-body">
 				
 				<div class="form-group">
+				<div class="inputGroupContainer">
+				
 				<% 
 							Corso[] corsi=Facade.getIstance().getCorsiPrenotabili(Long.valueOf(request.getParameter("idCorsista")));
 									if(corsi.length ==0){%>
@@ -29,7 +31,7 @@
 									<%}else{ %>
 				
 					<label for="CodCorso">Seleziona uno dei corsi disponibili</label>
-					<select class="form-control" name="CodCorso" id="CodCorso" >
+					<select  class="form-control" name="CodCorso" id="CodCorso" >
 	        		
 						<%for(Corso c : corsi){ %>
 							
@@ -44,6 +46,7 @@
 							
 					</select>
 				</div>
+			</div>
 			</div>
 			<div class="modal-footer">
 					<input type="hidden" name="CodCorsista" value="<%=request.getParameter("idCorsista") %>">

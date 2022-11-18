@@ -40,7 +40,7 @@
 				<button type="button" class="btn btn-primary" data-toggle="modal" 
 				data-target="#addCorsoModal_0">
 				Iscrivi a nuovo corso </button>
-				<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage</a>
+				<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage  <span class="glyphicon glyphicon-home"></span></a>
 		</form>		
 			
 	
@@ -95,6 +95,9 @@
 	
 </div>
 </div>
+<footer>
+	<%@include file="footer.html" %>
+</footer>
 </body>
 </html>
 <jsp:include page="addCorsoModal.jsp">

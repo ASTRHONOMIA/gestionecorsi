@@ -32,6 +32,13 @@ public class Validazione {
 		Matcher m = p.matcher(date);
 		return m.matches();
 	}
+	
+	
+	public boolean convalidaCommento(String stringa)
+	{
+		return stringa.length() <= 200;
+	}
+	
 
 	public boolean convalidaDate(String data1, String data2) {
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");

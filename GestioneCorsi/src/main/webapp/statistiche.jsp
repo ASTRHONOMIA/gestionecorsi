@@ -21,7 +21,6 @@ if( my_cookies != null ) {
 	if(session.getAttribute("nomeAdmin") != null){
 %>
 	
-	
 <%
 	int sommaDurata= 0;
 	Corso [] corsi = Facade.getIstance().getCorsi();
@@ -29,9 +28,7 @@ if( my_cookies != null ) {
 		for(Corso cor: corsi)
 			sommaDurata += Facade.getIstance().getDurataCorso(cor);
 	}
-	
 %>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -45,75 +42,78 @@ if( my_cookies != null ) {
 <body>
 <jsp:include page="nav.jsp"/>
 <div class="container">
-	<header >
-		<h3 style="text-align:center;">Statistiche generali</h3>
+	<header>
+		<h3>Statistiche generali:</h3>
 	</header>
 	
-	
-	<div class="table-responsive ">
+	<div class="table-responsive">
 		<table class="table table-hover">
-		
-		<tbody>
-				
-					<tr onclick="window.location.href='listacorsisti.jsp'" style="cursor:pointer;">
-						<th>Corsisti totali</th>
-						<td><%= Facade.getIstance().getNumberCorsisti()%></td>
-					</tr>
-				
-				<%if (corsi.length != 0){
+			<tbody>
+				<tr onclick="window.location.href='listacorsisti.jsp'" style="cursor:pointer;">
+					<th style="width: 25%"">Corsisti totali</th>
+					<td><%= Facade.getIstance().getNumberCorsisti()%></td>
+				</tr>
+				<%
+					if (corsi.length != 0){
 					double durataMedia = sommaDurata / corsi.length;
-					%>
+				%>
 				<tr>
-					<th >Corso pi&ugrave; frequentato</th>
+					<th style="width: 25%">Corso pi&ugrave; frequentato</th>
 					<td >
-						<% String [] nomi = Facade.getIstance().corsoPiuFrequentato();
-						if(nomi.length !=0){
-							for(String nome : nomi){
+						<% 
+							String [] nomi = Facade.getIstance().corsoPiuFrequentato();
+							if(nomi.length !=0){
+								for(String nome : nomi){
 						%>
+						
 						<%= nome %> <br>
-					<%}
-						}else{
-					%>
+						
+						<%
+								}
+							}else{
+						%>
 					Nessun corso viene frequentato
 					
-					<%} %>
-					
-					
+						<%
+							} 
+						%>
 					</td>
 				</tr>
 				<tr>
-					<th >Data Inizio ultimo corso</th>
+					<th style="width: 25%">Data Inizio ultimo corso</th>
 					<td >
 						<%SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); %>
 					 	<%= formatter.format(Facade.getIstance().getInizioUltimoCorso()) %> 
 					 </td>
 				</tr>
 				<tr>
-					<th >Durata Media Corsi</th>
+					<th style="width: 25%">Durata Media Corsi</th>
 					<td >
 					 	<%=String.format("%.0f giorni", durataMedia ) %> 
 					 </td>
 				</tr>
 				<tr>
-					<th >Numero Totali commenti corsi</th>
+					<th style="width: 25%">Numero Totali commenti corsi</th>
 					<td >
 					 	<%= Facade.getIstance().numeroCommenti() %>
 					 </td>
 				</tr>
-				<%}else{%>
+				<%
+					}else{
+				%>
 				<tr>
-					<th>Nessun Corso Presente </th>
+					<th style="width: 25%">Nessun Corso Presente </th>
 					<td></td>
 				</tr>
-				<%} %>
+				<%
+					} 
+				%>
 		</tbody>
 		</table>
-		
 	</div>
 	<div>
-			<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage  <span class="glyphicon glyphicon-home"></span></a>
-		</div>	
-	
+		<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage  <span class="glyphicon glyphicon-home"></span></a>
+	</div>	
 </div>
 <footer>
 	<%@include file="footer.html" %>

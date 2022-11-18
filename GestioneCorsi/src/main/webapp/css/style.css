@@ -87,6 +87,12 @@ table {
     width: 400px;	
 }
 
+th{
+	background-color:LightSkyBlue;
+	color:#344055;
+}
+
+
 ::-webkit-scrollbar{
     display:none;
 }

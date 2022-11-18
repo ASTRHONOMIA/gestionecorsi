@@ -27,27 +27,19 @@
 <div class="container" style="justify-content:space-between;">
 	<header class="page-header">
 		<h3><%=corsista.getNomeCorsista()%> <%=corsista.getCognomeCorsista()%></h3>
-		
-	
-		
-			
 	</header>
 	
-	<div class="row"  style="justify-content:flex-start;" >
+	<div class="row"  style="justify-content:flex-start;margin-left:3px" >
 		
 		<form action="addCorsoModal.jsp" method="post" >
 				<input type="hidden" name="CodCorsista" value="<%= corsista.getCodiceCorsista()%>">
 				<button type="button" class="btn btn-primary" data-toggle="modal" 
 				data-target="#addCorsoModal_0">
-				Iscrivi a nuovo corso </button>
-				<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage  <span class="glyphicon glyphicon-home"></span></a>
+				Iscrivi a nuovo corso&nbsp;<span class="glyphicon glyphicon-pencil"></span></button>
+				<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage&nbsp;<span class="glyphicon glyphicon-home"></span></a>
 		</form>		
 			
 	
-		
-		
-		
-		
 	</div>
 	
 	<div class="row" style="justify-content:space-between; margin-top:50px;">
@@ -59,17 +51,13 @@
 				Corso corso = Facade.getIstance().findByCod(id);
 	%>
 	
-	<div class=" col-md-3 col-sm-5 col-xs-12" style="display:inline-block;">
+		<div class=" col-md-3 col-sm-5 col-xs-12" style="display:inline-block;">
 	
-	<div class="panel panel-info" >
-		
-	
-	
-	
-		<div class="panel-heading">
-			<h3><%=corso.getNomeCorso()%></h3>
-		</div>
-		<div class="panel-body">
+			<div class="panel panel-info" >
+				<div class="panel-heading">
+					<h3><%=corso.getNomeCorso()%></h3>
+				</div>
+			<div class="panel-body">
 		
 			<h4></h4>
 			<p>Inizio: <%=format.format(corso.getDataInizio())%></p>
@@ -80,20 +68,14 @@
 			<p>Posti occupati: <%=corso.getPostiOccupati()%></p>
 			<hr>
 		
+			</div>
+			</div>
+			
 		</div>
-	</div>
-	
-	
-	</div>
-	
-	
-	
-	
 	<% 
 		}
 	%>
-	
-</div>
+	</div>
 </div>
 <footer>
 	<%@include file="footer.html" %>

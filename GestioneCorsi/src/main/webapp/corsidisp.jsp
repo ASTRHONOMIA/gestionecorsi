@@ -1,6 +1,3 @@
-<%@page import="com.roma.gestionecorsi.businesscomponent.model.Docente"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
 <%
 Cookie my_cookie = null;
 Cookie[] my_cookies = null;
@@ -23,6 +20,9 @@ if( my_cookies != null ) {
 %>
 <%@page import="com.roma.gestionecorsi.businesscomponent.facade.Facade"%>
 <%@page import="com.roma.gestionecorsi.businesscomponent.model.Corso"%>
+<%@page import="com.roma.gestionecorsi.businesscomponent.model.Docente"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ if( my_cookies != null ) {
 	
 	<div class="table-responsive">
 		<table class="table table-hover">
-			<thead style="background-color:LightSkyBlue;color:#344055;text-align: center;">
+			<thead>
 				<tr>
 					<th>Nome</th>
 					<th>Inizio</th>

@@ -32,19 +32,19 @@
 	
 	<div  class="listaCorsistiBtn"  style="margin-bottom:30px;">
 	
-		<a class="btn btn-info col-md-3 col-sm-6 col-xs-12" style="background-color:LightSkyBlue;color:#344055;" data-toggle="modal" data-target="#editModal" href="#">
+		<a class="btn btn-info col-md-3 col-sm-6 col-xs-12" style="background-color:LightSkyBlue;color:#344055;border-radius: 0px" data-toggle="modal" data-target="#editModal" href="#">
 		<label>Inserisci nuovo corsista &nbsp;<span class="glyphicon glyphicon-plus"></span></label>
 		</a>
 		
-		<a  class="btn btn-info col-md-3 col-sm-6 col-xs-12" data-toggle="modal" data-target="#ModalCorso" style="background-color:LightSkyBlue;color:#344055;" href="#" >
+		<a  class="btn btn-info col-md-3 col-sm-6 col-xs-12" data-toggle="modal" data-target="#ModalCorso" style="background-color:LightSkyBlue;color:#344055;border-radius: 0px" href="#" >
 		<label>Inserisci corso &nbsp;<span class="glyphicon glyphicon-plus"></span></label>
 		</a>
 		
-		<a  class="btn btn-info col-md-3 col-sm-6 col-xs-12" href="statistiche.jsp" style="background-color:LightSkyBlue;color:#344055;" >
+		<a  class="btn btn-info col-md-3 col-sm-6 col-xs-12" href="statistiche.jsp" style="background-color:LightSkyBlue;color:#344055;border-radius: 0px" >
 		<label>Visualizza statistiche &nbsp;<span class="glyphicon glyphicon-list-alt"></span></label>
 		</a>
 		
-		<a class="btn btn-info col-md-3 col-sm-6 col-xs-12" href="corsidisp.jsp" style="background-color:LightSkyBlue;color:#344055;">
+		<a class="btn btn-info col-md-3 col-sm-6 col-xs-12" href="corsidisp.jsp" style="background-color:LightSkyBlue;color:#344055;border-radius: 0px">
 		<label>Rimuovi corso&nbsp;<span class="glyphicon glyphicon-trash"></span></label>
 		</a>
 	</div>

@@ -36,7 +36,7 @@ footer {
 }
 @media screen and (max-width:700px) {
 	footer {
-	height:480px;
+	height:480;
 	}
 	body{
 	margin-bottom:500px;
@@ -58,8 +58,9 @@ footer section {
 
 p.copyright {
 	clear: both;
-	margin-left:30px;
-	margin-bottom:30px;
+	margin-left: 30px;
+	margin-bottom: 30px;
+	
 }
 footer a{
 	color: #344055;
@@ -100,21 +101,21 @@ table {
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 100px) {
-    td,th,.btn{
+    td,th,.btn,footer nav,footer section, footer a{
 		font-size: 0.75rem;
 	}
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
-td,th,.btn{
+td,th,.btn,footer nav,footer section, footer a{
 		font-size: 0.90rem;
 	}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	td,th,.btn{
+	td,th,.btn,footer nav,footer section, footer a{
 		font-size: 0.95rem;
 	}
 
@@ -122,43 +123,14 @@ td,th,.btn{
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	td,th,.btn{
+	td,th,.btn,footer nav,footer section, footer a{
 	font-size:1.2rem;
 	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-	td,th,.btn{
+	td,th,.btn,footer nav, footer section, footer a{
 		font-size: 1.5rem;
 	}
-}
-
-
-
-/*==========  Non-Mobile First Method  ==========*/
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (max-width : 480px) {
-
-}
-
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-    
 }

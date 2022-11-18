@@ -88,3 +88,9 @@ table {
 ::-webkit-scrollbar{
     display:none;
 }
+
+.listaCorsistiBtn{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-around;
+}

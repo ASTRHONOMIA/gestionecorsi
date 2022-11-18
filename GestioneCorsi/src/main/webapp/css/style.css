@@ -4,6 +4,7 @@ html {
 	
 }
 
+
 body{
 	margin-bottom: 320px;
 }
@@ -64,6 +65,10 @@ table {
     width: 400px;	
 }
 
+.table{
+	box-shadow: -1px 13px 14px -7px rgba(0,0,0,0.75);
+}
+
 th{
 	background-color:LightSkyBlue;
 	color:#344055;
@@ -97,6 +102,13 @@ th{
 	font-weight: bold;
 	font-style: oblique;
 }
+.btn:hover{
+	transform: scale(1.1);
+
+	z-index:12;
+
+}
+
 
 
 /*==========  Mobile First Method  ==========*/

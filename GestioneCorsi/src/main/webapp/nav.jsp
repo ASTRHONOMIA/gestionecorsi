@@ -1,6 +1,10 @@
-<nav class="navbar navbar-default" style="background-color:LightSkyBlue; border-top:none">
+<nav class="navbar navbar-default" style="background-color:LightSkyBlue; border-top:none; box-shadow: 1px -5px 14px -7px rgba(0,0,0,0.75) inset;">
   <div class="container-fluid">
+  	
     <div class="navbar-header">
+    <a class="navbar-brand" style="max-width:150px; height:100%; margin:10px;" >
+  		<img  alt="Betacome" src="img/Betacom.png" style="width:100%;"   >
+  	</a>
       <button type="button" class="navbar-toggle" 
       data-toggle="collapse" data-target="#menuApp">
         <span class="icon-bar"></span>

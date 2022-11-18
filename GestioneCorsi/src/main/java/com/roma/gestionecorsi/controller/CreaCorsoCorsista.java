@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.roma.gestionecorsi.businesscomponent.facade.Facade;
+import com.roma.gestionecorsi.businesscomponent.model.Corso;
 import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 
 @WebServlet("/creaCorsoCorsista")
@@ -34,6 +35,9 @@ public class CreaCorsoCorsista extends HttpServlet {
 			corsocorsista.setCodCorsista(CodCorsista);
 			Facade.getIstance().createCorsoCorstita(corsocorsista);
 			response.sendRedirect("infocorsista.jsp");
+			Corso corso= Facade.getIstance().findByCod(CodCorso);
+			corso.setPostiOccupati(corso.getPostiOccupati()+1);
+			Facade.getIstance().updateCorso(corso);
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

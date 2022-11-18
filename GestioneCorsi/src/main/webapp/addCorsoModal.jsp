@@ -9,8 +9,8 @@
 	<div class="modal-dialog modal-md">
 		<div class="modal-content">
 		<form action="/<%=application.getServletContextName()%>/creaCorsoCorsista" method="post">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<div class="modal-header" style="background:#87cefa;color:black;">
+				<button type="button" class="btn btn-danger" style="position:absolute;right:12px;top:12px;" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<h4 class="modal-title" id="modalLabelSmall">Iscrivi a nuovo corso</h4>
@@ -48,10 +48,10 @@
 				</div>
 			</div>
 			</div>
-			<div class="modal-footer">
+			<div class="modal-footer" style="text-align:center;">
 					<input type="hidden" name="CodCorsista" value="<%=request.getParameter("idCorsista") %>">
 					
-						<button type="submit" class="btn btn-success btn-md "> Iscrivi </button>
+						<button type="submit" class="btn btn-primary btn-md"> Iscrivi </button>
 						<button type="button" class="btn btn-danger btn-md " data-dismiss="modal" aria-label="Close"> Annulla </button>
 					
 			</div>

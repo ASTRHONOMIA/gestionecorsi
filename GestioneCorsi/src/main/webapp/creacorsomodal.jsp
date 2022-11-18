@@ -11,8 +11,8 @@
 			action="/<%=application.getServletContextName()%>/inserisciCorso"
 			method="post" class="form-horizontal" id="adminForm">
 			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="modal-header" style="background:#87cefa;color:black;	">
+					<button type="button" class="btn btn-danger" style="position:absolute;right:12px;top:12px;" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Crea corso</h4>
 				</div>
 				<div class="modal-body">
@@ -145,11 +145,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-success btn-lg">Salva
+				<div class="modal-footer" style="text-align:center;">
+					<button type="submit" class="btn btn-primary btn-lg">Salva
 						modifiche</button>
-					<button type="button" class="btn btn-success btn-lg"
-						data-dismiss="modal">Anulla</button>
+					<button type="button" class="btn btn-danger btn-lg"
+						data-dismiss="modal">Annulla</button>
 				</div>
 			</div>
 		</form>

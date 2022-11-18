@@ -15,6 +15,7 @@ import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
 import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
 import com.roma.gestionecorsi.businesscomponent.model.Docente;
+import com.roma.gestionecorsi.businesscomponent.utilities.Validazione;
 
 public class Facade {
 	private static Facade f;
@@ -23,6 +24,7 @@ public class Facade {
 	private DocenteBC dBC;
 	private CorsoBC corBC;
 	private CorsoCorsistaBC corcorsBC;
+	private Validazione valBC;
 
 	private Facade() {
 	}
@@ -61,7 +63,7 @@ public class Facade {
 	}
 	// fine Facade per Corsista
 
-	// Inizio Facede per Amministratore
+	// Inizio Facade per Amministratore
 
 	public Amministratore findAmministratoreByid(long cod) throws ClassNotFoundException, DAOException, IOException {
 		aBC = new AmministratoreBC();
@@ -73,9 +75,9 @@ public class Facade {
 		return aBC.getAdmin();
 	}
 
-	// Fine Facede per Amministratore
+	// Fine Facade per Amministratore
 
-	// Inizio Facede per Docente
+	// Inizio Facade per Docente
 
 	public Docente findDocenteById(long cod) throws ClassNotFoundException, DAOException, IOException {
 		dBC = new DocenteBC();
@@ -87,9 +89,9 @@ public class Facade {
 		return dBC.getDocenti();
 	}
 
-	// Fine Face per Docente
+	// Fine Facade per Docente
 
-	// Inizio Facede per Corso
+	// Inizio Facade per Corso
 
 	public void createCorso(Corso corso) throws DAOException, ClassNotFoundException, IOException {
 		corBC = new CorsoBC();
@@ -144,9 +146,9 @@ public class Facade {
 		return corBC.postiDisponibili(getNumberCorsisti());
 	}
 	
-	//Fine Facede per Corso
+	//Fine Facade per Corso
 	
-	//Inizio Facede per CorsoCorsista
+	//Inizio Facade per CorsoCorsista
 	public void createCorsoCorstita(CorsoCorsista corsoCorsista) throws ClassNotFoundException, DAOException, IOException
 	{
 		corcorsBC=new CorsoCorsistaBC();
@@ -178,7 +180,41 @@ public class Facade {
 	}
 	
 	
-	//Fine Facede per CorsoCorsista
+	//Fine Facade per CorsoCorsista
+	
+	//Inizio Facade Validazione
+	public boolean convalidaStringa(String stringa)
+	{
+		valBC = new Validazione();
+		return valBC.convalidaStringa(stringa);
+	}
+	
+	public boolean convalidaCommento(String commento)
+	{
+		valBC = new Validazione();
+		return valBC.convalidaCommento(commento);
+	}
+	
+	public boolean convalidaFormatoDate(String data)
+	{
+		valBC = new Validazione();
+		return valBC.convalidaFormatoDate(data);
+	}
+	
+	public boolean convalidaDate(String data1,String data2)
+	{
+		valBC = new Validazione();
+		return valBC.convalidaDate(data1,data2);
+	}
+	
+	public boolean convalidaAula(String aula)
+	{
+		valBC = new Validazione();
+		return valBC.convalidaAula(aula);
+	}
+	
+	
+	
 	
 	
 }

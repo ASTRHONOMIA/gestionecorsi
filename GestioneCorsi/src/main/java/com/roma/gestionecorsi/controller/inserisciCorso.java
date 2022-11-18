@@ -2,6 +2,7 @@ package com.roma.gestionecorsi.controller;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,16 +40,34 @@ public class inserisciCorso extends HttpServlet {
 			*/
 			
 			long codDocente= Long.valueOf(request.getParameter("CodDocente"));
-			corso.setNomeCorso(request.getParameter("nomeCorso"));
-			corso.setDataInizio(formato.parse(request.getParameter("dataInizio")));
-			corso.setDataFine(formato.parse(request.getParameter("dataFine")));
-			corso.setCommento(request.getParameter("commento"));
-			corso.setCosto(Double.valueOf(request.getParameter("costoCorso")));
-			corso.setAulaCorso(request.getParameter("aulaCorso"));
+			String nomeCorso=request.getParameter("nomeCorso");
+			double costo=0.0;
+			String commento=request.getParameter("commento");
+			if(!request.getParameter("costoCorso").equals(""))
+				costo=Double.valueOf(request.getParameter("costoCorso"));
+			String aulaCorso=request.getParameter("aulaCorso");
+			Facade f = Facade.getIstance();
+			
+			if(		f.convalidaAula(aulaCorso) &&
+					f.convalidaCommento(commento) &&
+					f.convalidaCOsto(costo) &&
+					f.convalidaStringa(nomeCorso) &&
+					f.convalidaFormatoDate(request.getParameter("dataInizio")) &&
+					f.convalidaFormatoDate(request.getParameter("dataFine")) &&
+					f.convalidaDate(request.getParameter("dataInizio"), request.getParameter("dataFine")))
+			{
+			Date dataInizio=formato.parse(request.getParameter("dataInizio"));
+			Date dataFine=formato.parse(request.getParameter("dataFine"));
+			corso.setNomeCorso(nomeCorso);
+			corso.setDataInizio(dataInizio);
+			corso.setDataFine(dataFine);
+			corso.setCommento(commento);
+			corso.setCosto(costo);
+			corso.setAulaCorso(aulaCorso);
 			corso.setPostiOccupati(0);
 			corso.setCodDocente(codDocente);
 			
-			Facade f = Facade.getIstance();
+			
 			f.createCorso(corso);
 			
 			/*for (int i = 0; i < num; i++) {
@@ -69,7 +88,10 @@ public class inserisciCorso extends HttpServlet {
 			}*/
 			
 			response.sendRedirect("listacorsisti.jsp");
-			
+			}
+			else {
+				response.sendRedirect("listacorsisti.jsp?error=si");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ServletException(e.getMessage());

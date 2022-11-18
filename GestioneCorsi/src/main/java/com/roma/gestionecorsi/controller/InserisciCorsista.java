@@ -23,6 +23,7 @@ public class InserisciCorsista extends HttpServlet {
 				Corsista corsista=new Corsista();
 				String nome= (String) request.getParameter("nome");
 				String cognome= (String) request.getParameter("cognome");
+				if(Facade.getIstance().convalidaStringa(nome) && Facade.getIstance().convalidaStringa(cognome)) {
 				corsista.setNomeCorsista(nome);
 				corsista.setCognomeCorsista(cognome);
 				if(Integer.valueOf(request.getParameter("precedenti"))==1)
@@ -31,6 +32,10 @@ public class InserisciCorsista extends HttpServlet {
 					corsista.setPrecedentiFormativi(false);
 				Facade.getIstance().createOrUpdate(corsista);
 				response.sendRedirect("listacorsisti.jsp");
+				}
+				else {
+					response.sendRedirect("listacorsisti.jsp?error=si");
+				}
 			} catch (ClassNotFoundException | DAOException | IOException e) {
 				e.printStackTrace();
 				throw new ServletException(e.getMessage());

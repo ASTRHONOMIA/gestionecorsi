@@ -65,14 +65,14 @@ if( my_cookies != null ) {
 							Docente d = Facade.getIstance().findDocenteById(cor[i].getCodDocente());
 				%>
 				<tr>
-					<td><%=cor[i].getNomeCorso()%></td>
-					<td><%=df.format(cor[i].getDataInizio())%></td>
-					<td><%=df.format(cor[i].getDataFine())%></td>
-					<td><%=String.format("%.2f",cor[i].getCosto())%>&euro;</td>
-					<td><%=cor[i].getCommento()%></td>
-					<td><%=cor[i].getAulaCorso()%></td>
-					<td><%=d.getCognomeDocente()%></td>
-					<td><%=cor[i].getPostiOccupati()%></td>
+					<td><p><%=cor[i].getNomeCorso()%></p></td>
+					<td><p><%=df.format(cor[i].getDataInizio())%></p></td>
+					<td><p><%=df.format(cor[i].getDataFine())%></p></td>
+					<td><p><%=String.format("%.2f",cor[i].getCosto())%>&euro;</p></td>
+					<td><p><%=cor[i].getCommento()%></p></td>
+					<td><p><%=cor[i].getAulaCorso()%></p></td>
+					<td><p><%=d.getCognomeDocente()%></p></td>
+					<td><p><%=cor[i].getPostiOccupati()%></p></td>
 					<td>
 						
 						<button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalCorso_<%=cor[i].getCodCorso()%>"> <span class="glyphicon glyphicon-trash"></span> </button>

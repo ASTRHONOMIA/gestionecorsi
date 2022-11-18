@@ -14,10 +14,18 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<% if(request.getParameter("error")!=null && !request.getParameter("error").equals("")){%>
+<script>
+	$(document).ready(function(){
+		$("#errorModal").modal('show');
+	});
+</script>
+<% } %>
 <jsp:include page="nav.jsp"/>
 <div class="container">
 	<jsp:include  page ="creaCorsistaModal.jsp"/>
 	<jsp:include  page="creacorsomodal.jsp"/>
+	<jsp:include  page="datierratiModal.jsp"/>
 	<header>
 		<h3>Corsisti attualmente iscritti: </h3>
 	</header>

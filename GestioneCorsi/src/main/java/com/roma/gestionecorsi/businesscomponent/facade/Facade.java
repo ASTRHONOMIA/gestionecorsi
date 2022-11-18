@@ -213,7 +213,11 @@ public class Facade {
 		return valBC.convalidaAula(aula);
 	}
 	
-	
+	public boolean convalidaCOsto(double costo)
+	{
+		valBC= new Validazione();
+		return valBC.convalidaCosto(costo);
+	}
 	
 	
 	

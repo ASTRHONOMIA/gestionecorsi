@@ -49,12 +49,10 @@ public class Validazione {
 			fine.setTime(format.parse(data2));
 			if (inizio.get(GregorianCalendar.DAY_OF_WEEK) == 7 || inizio.get(GregorianCalendar.DAY_OF_WEEK) == 1)
 			{
-				System.out.println("Inizia di sabato o domenica");
 				return false;
 			}
 			if (fine.get(GregorianCalendar.DAY_OF_WEEK) == 7 || fine.get(GregorianCalendar.DAY_OF_WEEK) == 1)
 			{
-				System.out.println("Finisce di sabato o domenica");
 				return false;
 			}
 			if (inizio.before(fine)) {
@@ -64,17 +62,12 @@ public class Validazione {
 					GregorianCalendar date2 = new GregorianCalendar();
 					date2 = fine;
 					date2.add(GregorianCalendar.DATE, 1);
-					System.out.println("Data inizio: "+data1+" Datafine: "+data2);
-					System.out.println("\n\n"+format.format(fine.getTime()));
 					for (date1 = inizio; !date1.equals(date2) && giorni < 2; date1.add(GregorianCalendar.DATE,1)) {
 						
 						if (date1.get(GregorianCalendar.DAY_OF_WEEK) != 7 && date1.get(GregorianCalendar.DAY_OF_WEEK) != 1)
 							{
 								giorni = giorni + 1;
-								System.out.println("Giorno lavorarivo");
 							}
-						else
-							System.out.println("Giorno Festivo");
 					}
 					if (giorni == 2) {
 						return true;

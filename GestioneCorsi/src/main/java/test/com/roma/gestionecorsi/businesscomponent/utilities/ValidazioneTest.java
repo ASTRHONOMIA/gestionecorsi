@@ -51,5 +51,14 @@ class ValidazioneTest {
 		assertTrue(validate.convalidaDate("18/11/2022", "21/11/2022"));
 		
 	}
+	
+	@Test
+	void testCosto()
+	{
+		Validazione validate=new Validazione();
+		assertTrue(validate.convalidaCosto(2.0));
+		assertFalse(validate.convalidaCosto(0.0));
+		assertFalse(validate.convalidaCosto(-1.0));
+	}
 
 }

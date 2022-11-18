@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.roma.gestionecorsi.businesscomponent.facade.Facade;
 //import com.roma.gestionecorsi.businesscomponent.model.Corsista;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
-//import com.roma.gestionecorsi.businesscomponent.model.CorsoCorsista;
-import com.roma.gestionecorsi.businesscomponent.model.Docente;
 
 
 @WebServlet("/inserisciCorso")

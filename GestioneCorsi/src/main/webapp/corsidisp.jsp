@@ -41,7 +41,7 @@ if( my_cookies != null ) {
 	</header>
 	
 	<div class="table-responsive">
-		<table class="table table-hover" style="text-align: center;">
+		<table class="table table-hover">
 			<thead style="background-color:LightSkyBlue;color:#344055;text-align: center;">
 				<tr>
 					<th>Nome</th>

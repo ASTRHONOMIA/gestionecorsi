@@ -44,8 +44,7 @@
 							$('#di').datepicker({
 								format : 'dd/mm/yyyy',
 								autoclose : true,
-								startDate : '01/01/1900',
-								endDate : new Date()
+								startDate : new Date()
 							}).on(
 									'changeDate',
 									function(e) {
@@ -73,8 +72,7 @@
 							$('#df').datepicker({
 								format : 'dd/mm/yyyy',
 								autoclose : true,
-								startDate : '03/01/1900',
-								endDate : new Date()
+								startDate : new Date()
 							}).on(
 									'changeDate',
 									function(e) {

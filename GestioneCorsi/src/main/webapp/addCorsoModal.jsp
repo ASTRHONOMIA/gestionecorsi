@@ -19,6 +19,7 @@
 			<div class="modal-body">
 				
 				<div class="form-group">
+				<label for="CodCorso">Seleziona uno dei corsi disponibili:</label>
 				<div class="inputGroupContainer">
 				
 				<% 
@@ -30,21 +31,23 @@
 									
 									<%}else{ %>
 				
-					<label for="CodCorso">Seleziona uno dei corsi disponibili</label>
-					<select  class="form-control" name="CodCorso" id="CodCorso" >
+						<div class="input-group corsiprenotabili">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><select  class="form-control" name="CodCorso" id="CodCorso" >
 	        		
 						<%for(Corso c : corsi){ %>
 							
-							<option value="<%= c.getCodCorso()%>"><%= c.getNomeCorso()%></option>
+						<option value="<%= c.getCodCorso()%>"><%= c.getNomeCorso()%></option>
 						<% 
 							
 							}
-									}
+								%>
 								
 						
-						%>
+						
 							
 					</select>
+					</div>	
+					<% } %>
 				</div>
 			</div>
 			</div>

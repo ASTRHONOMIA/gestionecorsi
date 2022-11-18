@@ -21,34 +21,35 @@
 	<header>
 		<h3>Corsisti attualmente iscritti: </h3>
 	</header>
-	<div  class="btn-group btn-group-justified " role="group" style="margin-bottom:30px;" >
 	
-		<a class="btn btn-info " style="background-color:LightSkyBlue;color:#344055;" data-toggle="modal" data-target="#editModal" href="#">
-		Inserisci nuovo corsista &nbsp;<span class="glyphicon glyphicon-plus"></span>
+	<div  class="btn-group btn-group-justified" role="group" style="margin-bottom:30px;">
+	
+		<a class="btn btn-info" style="background-color:LightSkyBlue;color:#344055;" data-toggle="modal" data-target="#editModal" href="#">
+		<label>Inserisci nuovo corsista &nbsp;<span class="glyphicon glyphicon-plus"></span></label>
 		</a>
 		
 		<a  class="btn btn-info " data-toggle="modal" data-target="#ModalCorso" style="background-color:LightSkyBlue;color:#344055;" href="#" >
-		Inserisci corso &nbsp;<span class="glyphicon glyphicon-plus"></span>
+		<label>Inserisci corso &nbsp;<span class="glyphicon glyphicon-plus"></span></label>
 		</a>
 		
 		<a  class="btn btn-info " href="statistiche.jsp" style="background-color:LightSkyBlue;color:#344055;" >
-		Visualizza statistiche &nbsp;<span class="glyphicon glyphicon-list-alt"></span>
+		<label>Visualizza statistiche &nbsp;<span class="glyphicon glyphicon-list-alt"></span></label>
 		</a>
 		
 		<a class="btn btn-info " href="corsidisp.jsp" style="background-color:LightSkyBlue;color:#344055;">
-		Rimuovi corso &nbsp;<span class="glyphicon glyphicon-trash"></span>
+		<label>Rimuovi corso&nbsp;<span class="glyphicon glyphicon-trash"></span></label>
 		</a>
 	</div>
 	
 	<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
-			</thead>
 				<tr>
 					<th>Nome</th>
 					<th>Cognome</th>
 					<th>Precedenti Formativi</th>
 				</tr>
+				</thead>
 			<tbody>
 				<% 
 					Corsista[] c = Facade.getIstance().getCorsisti();

@@ -55,9 +55,9 @@ if( my_cookies != null ) {
 		
 		<tbody>
 				
-					<tr onclick="window.location.href='listacorsisti.jsp'" style="cursor:pointer">
-						<th style="width:40%;">Corsisti totali</th>
-						<td style="width:60%;"><%= Facade.getIstance().getNumberCorsisti()%></td>
+					<tr onclick="window.location.href='listacorsisti.jsp'" style="cursor:pointer;">
+						<th>Corsisti totali</th>
+						<td><%= Facade.getIstance().getNumberCorsisti()%></td>
 					</tr>
 				
 				<%if (corsi.length != 0){
@@ -108,11 +108,11 @@ if( my_cookies != null ) {
 				<%} %>
 		</tbody>
 		</table>
-		<div>
-			<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage  <span class="glyphicon glyphicon-home"></span></a>
-		</div>
+		
 	</div>
-	
+	<div>
+			<a type="button" class="btn btn-default" href="listacorsisti.jsp">HomePage  <span class="glyphicon glyphicon-home"></span></a>
+		</div>	
 	
 </div>
 <footer>

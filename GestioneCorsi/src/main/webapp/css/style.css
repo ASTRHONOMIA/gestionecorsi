@@ -24,6 +24,7 @@ nav.navbar{
 color: #344055;
 }
 
+
 footer {
 	position:absolute;
 	bottom: 0;
@@ -61,4 +62,29 @@ p.copyright {
 }
 footer a{
 	color: #344055;
+}
+
+
+
+thead{
+	background-color: LightSkyBlue;
+}
+
+tbody {
+    display: block;
+    max-height: 40vh;
+    overflow-y: scroll;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;/* even columns width , fix width of table too*/
+}
+
+table {
+    width: 400px;	
+}
+
+::-webkit-scrollbar{
+    display:none;
 }

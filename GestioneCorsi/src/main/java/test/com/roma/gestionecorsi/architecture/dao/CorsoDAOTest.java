@@ -20,7 +20,6 @@ import com.roma.gestionecorsi.architecture.dao.CorsoDAO;
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.roma.gestionecorsi.businesscomponent.model.Corso;
-import com.roma.gestionecorsi.businesscomponent.model.Docente;
 
 @TestMethodOrder(OrderAnnotation.class)
 class CorsoDAOTest {

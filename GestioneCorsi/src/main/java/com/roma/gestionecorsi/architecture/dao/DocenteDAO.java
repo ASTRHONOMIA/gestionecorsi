@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.sql.rowset.CachedRowSet;
-import javax.sql.rowset.RowSetProvider;
-
 import com.roma.gestionecorsi.businesscomponent.model.Docente;
 
 public class DocenteDAO extends GenericDAOAdapter<Docente> implements DAOCostants{
@@ -17,14 +14,9 @@ public class DocenteDAO extends GenericDAOAdapter<Docente> implements DAOCostant
 		return new DocenteDAO();
 	}
 
-	private CachedRowSet rowSet;
 	
 	private  DocenteDAO() throws DAOException{
-		try {
-			rowSet = RowSetProvider.newFactory().createCachedRowSet();
-		}catch(SQLException sql) {
-			throw new DAOException(sql);
-		}
+		
 	}
 	
 	//get Docente by codDocente

@@ -20,13 +20,11 @@ import com.roma.gestionecorsi.businesscomponent.model.Amministratore;
 
 @TestMethodOrder(OrderAnnotation.class)
 class AmministratoreBCTest {
-	private static Amministratore amministratore;
 	private static Connection conn;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
-		amministratore = null;
 		Statement stmt = conn.createStatement();
 		stmt.executeUpdate("Insert into amministratore values(2,'Andrea','Tulino')");
 		conn.commit();
@@ -36,7 +34,8 @@ class AmministratoreBCTest {
 	@Order(1)
 	void testFindByID() throws ClassNotFoundException, IOException {
 		try {
-			amministratore = new AmministratoreBC().findByID(2);
+			Amministratore amministratore = new AmministratoreBC().findByID(2);
+			System.out.println(amministratore);
 		}catch(SQLException sql){
 			sql.printStackTrace();
 			fail("Motivo: "+sql.getMessage());
@@ -48,6 +47,8 @@ class AmministratoreBCTest {
 	void testGetAdmin() throws ClassNotFoundException, IOException {
 		try {
 			Amministratore[] amministratori = new AmministratoreBC().getAdmin();
+			for(Amministratore admin: amministratori)
+				System.out.println(admin);
 		}catch(SQLException sql){
 			sql.printStackTrace();
 			fail("Motivo: "+sql.getMessage());
@@ -56,7 +57,6 @@ class AmministratoreBCTest {
 	
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
-		amministratore = null;
 		Statement stmt = conn.createStatement();
 		stmt.executeUpdate("Delete from amministratore where cod_admin = 2");
 		conn.commit();

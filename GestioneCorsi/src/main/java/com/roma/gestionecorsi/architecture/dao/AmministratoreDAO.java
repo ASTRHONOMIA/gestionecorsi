@@ -6,20 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.sql.rowset.CachedRowSet;
-import javax.sql.rowset.RowSetProvider;
-
 import com.roma.gestionecorsi.businesscomponent.model.Amministratore;
 
 public class AmministratoreDAO extends GenericDAOAdapter<Amministratore> implements DAOCostants {
-	private CachedRowSet rowSet; 
 	
 	private AmministratoreDAO() throws DAOException{
-		try {
-			rowSet = RowSetProvider.newFactory().createCachedRowSet();
-		} catch(SQLException sql) {
-			throw new DAOException(sql);
-		}
 	}
 	
 	public static AmministratoreDAO getFactory() throws DAOException {

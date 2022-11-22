@@ -2,7 +2,6 @@ package com.roma.gestionecorsi.businesscomponent.facade;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 import com.roma.gestionecorsi.architecture.dao.DAOException;
 import com.roma.gestionecorsi.businesscomponent.AmministratoreBC;
